@@ -1,0 +1,22 @@
+- name: redmine_knowlagedebase ソースコードをダウンロード
+  sudo: yes
+  git:
+    repo=https://github.com/alexbevi/redmine_knowledgebase.git
+    dest={{ redmine_dir }}/plugins
+    version=HEAD
+
+- name: Bundle install
+  sudo: yes
+  command:
+    chdir={{ redmine_dir }}
+    bundle install
+
+- name: Run rake
+  sudo: yes
+  command:
+    chdir={{ redmine _dir }}
+    bundle rake redmine:plugins:migrate NAME=redmine_knowledgebase
+
+- name: Restart redmine
+  sudo: yes
+  service: name=httpd state=restarted

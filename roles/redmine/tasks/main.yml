@@ -1,4 +1,4 @@
-- name: Redmineのソースコードをチェックアウト
+- name: Redmineのソースコードをチェックアウト branch: {{ redmine_git_branch }}
   sudo: yes
   git:
     repo={{ redmine_git_url }}
@@ -139,3 +139,4 @@
     RAILS_ENV: production
   when:
     result_database_yml|changed
+

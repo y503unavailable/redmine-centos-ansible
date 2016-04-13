@@ -1,4 +1,4 @@
-- name: Redmineのソースコードをチェックアウト branch: {{ redmine_git_branch }}
+- name: Redmineのソースコードをチェックアウト
   sudo: yes
   git:
     repo={{ redmine_git_url }}

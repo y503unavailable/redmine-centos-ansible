@@ -6,6 +6,7 @@
     - ruby
     - redmine
     - apache
+    - redmine-plugins
 
   post_tasks:
     - name: 完了

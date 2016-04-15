@@ -7,7 +7,7 @@
 - name: redmine_wiki_extensions ソースコードを解凍
   sudo: yes
   command:
-    unzip -d {{ redmine_dir }}/plugins /tmp/redmine_wiki_extensions-0.7.0.zip
+    unzip -o -d {{ redmine_dir }}/plugins /tmp/redmine_wiki_extensions-0.7.0.zip
  
 - name: Run rake
   sudo: yes

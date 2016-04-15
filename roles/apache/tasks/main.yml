@@ -40,7 +40,7 @@
 - name: redmine.confの作成
   sudo: yes
   template:
-    src=redmine.conf
+    src=redmine.conf.j2
     dest=/etc/httpd/conf.d/redmine.conf
 
 - name: Redmineに /redmine でアクセスするためのシンボリックリンク作成

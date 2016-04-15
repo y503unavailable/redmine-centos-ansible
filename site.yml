@@ -2,7 +2,7 @@
 
   roles:
     - system
-    - pg
+    - mariadb
     - ruby
     - redmine
     - apache

@@ -1,0 +1,49 @@
+- name: redmine_scm ソースコードをダウンロード
+  sudo: yes
+  git:
+    repo=https://github.com/alminium/redmine_scm.git
+    dest={{ redmine_dir }}/plugins/redmine_scm
+    version=redmine-3.2.x
+ 
+- name: db マイグレート
+  sudo: yes
+  command:
+    bundle exec rake redmine:plugins:migrate
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+
+- name: copy scm.yml
+  sudo: yes
+  copy:
+    src: scm.yml
+    dest: "{{ redmine_dir }}/config"
+    owner: root
+    owner: root
+    mode: 775
+
+- name: リポジトリ用ディレクトリの作成 /var/www/repos/svn
+  sudo: yes
+  file:
+    path: /var/www/repos/svn
+    state: directory
+    follow: yes
+    mode: 0777
+
+- name: リポジトリ用ディレクトリの作成 /var/www/repos/git
+  sudo: yes
+  file:
+    path: /var/www/repos/git
+    state: directory
+    follow: yes
+    mode: 0777
+
+- name: httpd とリポジトリの認証連携に必要なライブラリをインストール
+  sudo: yes
+  yum:
+    name: mod_perl,perl
+    
+- name: Restart redmine
+  sudo: yes
+  service: name=httpd state=restarted

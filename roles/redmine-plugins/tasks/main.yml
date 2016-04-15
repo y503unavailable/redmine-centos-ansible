@@ -1,2 +1,3 @@
 # - include: redmine_knowledgebase.yml
 - include: redmine_wiki_extensions.yml 
+- include: redmin_scm.yml

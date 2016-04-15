@@ -1,0 +1,15 @@
+production:
+  auto_create: true
+  deny_delete: false
+  svn:
+    path: /var/www/repos/svn
+    svnadmin: /usr/bin/svnadmin
+    url: ", http://ホスト名/svn"
+  git:
+    path: /var/www/repos/git
+    git: /usr/bin/git
+    options: --bare
+    url: ", http://ホスト名/git"
+    update_server_info: true
+    git_ext: true
+ 

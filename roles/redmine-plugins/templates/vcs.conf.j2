@@ -9,9 +9,8 @@ PerlLoadModule Apache::Authn::Redmine
   PerlAuthenHandler Apache::Authn::Redmine::authen_handler
 
   DAV svn
-  SVNParentPath /var/wwww/repos/svn
+  SVNParentPath "/var/wwww/repos/svn"
   SVNListParentPath on
-#  AuthzSVNAccessFile /etc/opt/alminium/svnauthz
   AuthType Basic
   AuthName Subversion
   AuthUserFile /dev/null
@@ -28,7 +27,7 @@ PerlLoadModule Apache::Authn::Redmine
 SetEnv GIT_PROJECT_ROOT /var/www/repos/git
 SetEnv GIT_HTTP_EXPORT_ALLow
 
-<Location /repos/git>
+<Location /repos/git >
   PerlAccessHandler Apache::Authn::Redmine::access_handler
   PerlAuthenHandler Apache::Authn::Redmine::authen_handler
 

@@ -28,7 +28,9 @@
     path: /var/www/repos/svn
     state: directory
     follow: yes
-    mode: 0777
+    owner: apache
+    group: apache
+    mode: 0775
 
 - name: リポジトリ用ディレクトリの作成 /var/www/repos/git
   sudo: yes
@@ -36,7 +38,9 @@
     path: /var/www/repos/git
     state: directory
     follow: yes
-    mode: 0777
+    owner: apache
+    group: apache
+    mode: 0775
 
 - name: httpd とリポジトリの認証連携に必要なライブラリをインストール
   sudo: yes

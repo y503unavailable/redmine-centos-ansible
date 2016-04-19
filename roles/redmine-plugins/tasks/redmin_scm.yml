@@ -17,7 +17,7 @@
 - name: copy scm.yml
   sudo: yes
   copy:
-    src: scm.yml
+    src: scm.yml.j2
     dest: "{{ redmine_dir }}/config"
     owner: root
     owner: root

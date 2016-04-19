@@ -9,9 +9,9 @@ PerlLoadModule Apache::Authn::Redmine
   PerlAuthenHandler Apache::Authn::Redmine::authen_handler
 
   DAV svn
-  SVNParentPath /var/opt/alminium/svn
+  SVNParentPath /var/wwww/repos/svn
   SVNListParentPath on
-  AuthzSVNAccessFile /etc/opt/alminium/svnauthz
+#  AuthzSVNAccessFile /etc/opt/alminium/svnauthz
   AuthType Basic
   AuthName Subversion
   AuthUserFile /dev/null
@@ -25,7 +25,7 @@ PerlLoadModule Apache::Authn::Redmine
 </Location>
 
 # Gitの設定
-SetEnv GIT_PROJECT_ROOT /var/opt/alminium/git
+SetEnv GIT_PROJECT_ROOT /var/www/repos/git
 SetEnv GIT_HTTP_EXPORT_ALLow
 
 <Location /git/>

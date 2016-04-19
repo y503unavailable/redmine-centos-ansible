@@ -8,7 +8,7 @@
 - name: database.ymlの作成
   sudo: yes
   template:
-    src=database.yml
+    src=database.yml.j2
     dest={{ redmine_dir }}/config/database.yml
     force=no
   register:
@@ -17,7 +17,7 @@
 - name: configuration.ymlの作成
   sudo: yes
   template:
-    src=configuration.yml
+    src=configuration.yml.j2
     dest={{ redmine_dir }}/config/configuration.yml
     force=no
 

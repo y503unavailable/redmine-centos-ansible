@@ -8,7 +8,7 @@
 
 - name: /etc/my.cnfを作成
   sudo: yes
-  template: src=my.cnf dest=/etc/my.cnf owner=root group=root mode=0644
+  template: src=my.cnf.j2 dest=/etc/my.cnf owner=root group=root mode=0644
 
 - name: MariaDB 起動・自動起動設定
   sudo: yes

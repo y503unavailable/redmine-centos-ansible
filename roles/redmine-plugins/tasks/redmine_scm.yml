@@ -17,9 +17,8 @@
 - name: copy scm.yml
   sudo: yes
   copy:
-    src: scm.yml.j2
+    src: scm.yml
     dest: "{{ redmine_dir }}/config"
-    owner: root
     owner: root
     mode: 775
 
@@ -42,7 +41,29 @@
 - name: httpd とリポジトリの認証連携に必要なライブラリをインストール
   sudo: yes
   yum:
-    name: mod_perl,perl
+    name: mod_perl,perl,mod_dav_svn,perl-Digest-SHA
+
+- name: リポジトリの認証連携の設定ファイル vcs.conf を配置
+  sudo: yes
+  template:
+    src: vcs.conf.j2
+    dest: /etc/httpd/conf.d/vcs.conf
+    owner: root
+    mode: 775
+
+- name: git リポジトリの認証連携のモジュールファイルをリンク用のディレクトリ作成
+  sudo: yes
+  file:
+    dest: /etc/httpd/Apache/Authn
+    state: directory
+    
+- name: git リポジトリの認証連携のモジュールファイルをリンク
+  sudo: yes
+  file:
+    src: "{{ redmine_dir }}/extra/svn/Redmine.pm"
+    dest: /etc/httpd/Apache/Authn/Redmine.pm
+    state: link
+      
     
 - name: Restart redmine
   sudo: yes

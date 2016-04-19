@@ -4,7 +4,7 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 # Suersionの設定
 PerlLoadModule Apache::Authn::Redmine
 
-<Location /svn/>
+<Location /repos/svn>
   PerlAccessHandler Apache::Authn::Redmine::access_handler
   PerlAuthenHandler Apache::Authn::Redmine::authen_handler
 
@@ -17,9 +17,9 @@ PerlLoadModule Apache::Authn::Redmine
   AuthUserFile /dev/null
   
   # for Redmine Authentication
-  RedmineDSN "DBI:mysql:datae=alminium;host=localhost"
-  RedmineDser "redmine"
-  RedmineDass "{{ db_passwd_redmine }}"
+  RedmineDSN "DBI:mysql:database=redmine;host=localhost"
+  RedmineDbUser "redmine"
+  RedmineDbPass "{{ db_passwd_redmine }}"
 
   Require valid-user
 </Location>
@@ -28,7 +28,7 @@ PerlLoadModule Apache::Authn::Redmine
 SetEnv GIT_PROJECT_ROOT /var/www/repos/git
 SetEnv GIT_HTTP_EXPORT_ALLow
 
-<Location /git/>
+<Location /repos/git>
   PerlAccessHandler Apache::Authn::Redmine::access_handler
   PerlAuthenHandler Apache::Authn::Redmine::authen_handler
 
@@ -36,9 +36,9 @@ SetEnv GIT_HTTP_EXPORT_ALLow
   AuthName Git
 
   # for Redmine Authentication
-  RedmineDSN "DBI:mysql:datae=alminium;host=localhost"
-  RedmineDser "redmine"
-  RedmineDass "{{ db_passwd_redmine }}"
+  RedmineDSN "DBI:mysql:database=redmine;host=localhost"
+  RedmineDbUser "redmine"
+  RedmineDbPass "{{ db_passwd_redmine }}"
   RedmineGitSmartHttp yes
   AuthUserFile /dev/null
   

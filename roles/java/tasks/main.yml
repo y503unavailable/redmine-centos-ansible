@@ -1,0 +1,34 @@
+- name: javaの存在確認
+  shell: which java
+  register: java_which
+  failed_when: java_which.rc not in [0, 1]
+              
+- name: JDK RPM ダウンロード
+  get_url:
+    url: "{{ jdk_rpm_url }}"
+    headers: 'Cookie:oraclelicense=accept-securep-cookie'
+    dest: "{{ download_path }}/{{ jdk_rpm_file }}"
+  when: java_which.rc == 1
+
+- name: Java インストール
+  sudo: yes
+  yum:
+    name: "{{ download_path }}/{{ jdk_rpm_file }}"
+    state: present
+  when: java_which.rc == 1
+
+# - name: JAVA_HOME 設定
+#   lineinfile:
+#     dest: ~/.bash_login
+#     line: 'export JAVA_HOME=/usr/java/default'
+#   sudo: yes
+#   sudo_user: zeppelin
+  
+- name: 不要なファイルの削除
+  file:
+    state: absent
+    path: "{{ download_path }}/{{ jdk_rpm_file }}"
+  when: java_which.rc == 1
+
+
+  

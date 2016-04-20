@@ -1,0 +1,21 @@
+# --------------------------------------------------------------------
+# 検索エンジン Fess の設定
+# --------------------------------------------------------------------
+
+download_path: /tmp
+
+# for java
+
+jdk_rpm_file: jdk-8u92-linux-x64.rpm
+jdk_rpm_url: "http://download.oracle.com/otn-pub/java/jdk/8u92-b14/{{ jdk_rpm_file }}"
+
+# for elasticsearch
+
+elasticsearch_rpm_file: elasticsearch-2.3.1.rpm
+elasticsearch_rpm_url: https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/rpm/elasticsearch/2.3.1/{{ elasticsearch_rpm_file }}
+
+# for fess
+
+fess_download_path: /tmp
+fess_rpm_file: fess-10.0.3.rpm
+fess_rpm_url: "https://github.com/codelibs/fess/releases/download/fess-10.0.3/{{ fess_rpm_file }}"

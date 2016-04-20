@@ -1,2 +1,5 @@
 [redmine-servers]
 localhost ansible_connection=local
+
+[fess-servers]
+localhost ansible_connection=local

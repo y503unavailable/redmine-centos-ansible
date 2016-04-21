@@ -85,10 +85,22 @@
     repo=https://github.com/farend/redmine_theme_farend_basic.git
     dest={{ redmine_dir }}/public/themes/farend_basic
 
-- name: テーマをfarend_basicに切り替え
+- name: flat_theme のダウンロード
+  sudo: yes
+  git:
+    repo=https://github.com/ssaito/redmine-theme-flat.git
+    dest={{ redmine_dir }}/public/themes/redmine_flat
+
+- name: theme_gitmike のダウンロード
+  sudo: yes
+  git:
+    repo=https://github.com/makotokw/redmine-theme-gitmike.git
+    dest={{ redmine_dir }}/public/themes/gitmike
+    
+- name: テーマをredmine_flat に切り替え
   sudo: yes
   command:
-    bundle exec rails r 'Setting["ui_theme"]="farend_basic"'
+    bundle exec rails r 'Setting["ui_theme"]="redmine_flat"'
     chdir={{ redmine_dir }}
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
@@ -140,3 +152,24 @@
   when:
     result_database_yml|changed
 
+- name: デフォルトデータの登録
+  sudo: yes
+  command:
+    bundle exec rake redmine:load_default_data
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: "production REAMINE_LANG=ja"
+  when:
+    result_database_yml|changed
+
+- name: テキスト書式をmarkdown をデフォルトに
+  sudo: yes
+  command:
+    bundle exec rails r 'Setting["text_formating"]="markdown"'
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+  when:
+    result_database_yml|changed

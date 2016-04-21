@@ -52,6 +52,7 @@
   mysql_db:
     name=redmine
     state=present
+    encoding=utf8
 
 - name: Redmine用ユーザー作成
   mysql_user:

@@ -1,3 +1,4 @@
-# - include: redmine_knowledgebase.yml
+- include: redmine_absolute_dates
 - include: redmine_wiki_extensions.yml 
 - include: redmine_scm.yml
+ 

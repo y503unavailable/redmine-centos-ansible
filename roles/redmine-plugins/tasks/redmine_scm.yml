@@ -19,8 +19,9 @@
   copy:
     src: scm.yml
     dest: "{{ redmine_dir }}/config"
-    owner: root
-    mode: 775
+    owner: apache
+    group: apache
+    mode: 0775
 
 - name: リポジトリ用ディレクトリの作成 /var/www/repos/svn
   sudo: yes
@@ -28,6 +29,7 @@
     path: /var/www/repos/svn
     state: directory
     follow: yes
+    recurse: yes
     owner: apache
     group: apache
     mode: 0775
@@ -38,6 +40,7 @@
     path: /var/www/repos/git
     state: directory
     follow: yes
+    recurse: yes
     owner: apache
     group: apache
     mode: 0775

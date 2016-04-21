@@ -1,0 +1,59 @@
+# - name: fess グループ作成
+#   group:
+#     name: fess
+#     state: present
+
+# - name: fess ユーザ作成
+#   user:
+#     name: fess
+#     group: fess
+#     home: /opt/fess
+
+- name: Fess service 存在確認
+  sudo: yes
+  shell: systemctl -a | grep fess
+  register: fess_service
+  failed_when: fess_service.rc not in [0, 1]
+
+- name: Fess RPM ダウンロード
+  get_url:
+    url: "{{ fess_rpm_url }}"
+    dest: "{{ download_path }}/{{ fess_rpm_file }}"
+    validate_certs: no
+  when: fess_service.rc == 1
+
+- name: Fess インストール
+  sudo: yes
+  yum:
+    name: "{{ download_path }}/{{ fess_rpm_file }}"
+    state: present
+  when: fess_service.rc == 1
+
+- name: elasticsearch プラグインインストール
+  sudo: yes
+  shell: |
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-kuromoji-neologd/2.3.0
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-ja/2.3.0
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-synonym/2.3.0
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-configsync/2.3.0
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-dataformat/2.3.0
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/lang-groovy/2.3.1
+    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-langfield/2.3.0
+    /usr/share/elasticsearch/bin/plugin install http://maven.codelibs.org/archive/elasticsearch/plugin/kopf/elasticsearch-kopf-2.0.0.0.zip
+  
+  
+- name: Fess サービス登録
+  sudo: yes
+  service:
+    name: fess
+    enabled: yes
+  when: fess_service.rc == 1
+    
+- name: 不要なファイルの削除
+  file:
+    state: absent
+    path: "{{ download_path }}/{{ fess_rpm_file }}"
+  when: fess_service.rc == 1
+
+  
+

@@ -1,5 +1,5 @@
-- hosts: redmine-servers
-
+- name: redmine サーバ構築
+  hosts: redmine-servers
   roles:
     - system
     - mariadb
@@ -7,8 +7,12 @@
     - redmine
     - apache
     - redmine-plugins
-
   post_tasks:
     - name: 完了
       debug:
         msg='インストールが完了しました。 http://{{ ansible_default_ipv4.address }}/redmine/ にアクセスしてください。'
+
+- name: fess サーバ構築
+  hosts: fess-servers
+  roles:
+    - java

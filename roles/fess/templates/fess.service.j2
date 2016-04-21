@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts and stops a single fess instance on this system
+
+[Service]
+Type=simple
+ExecStart={{ fess_dir }}/bin/fess
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy = multi-user.target

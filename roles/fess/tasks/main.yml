@@ -1,13 +1,12 @@
-# - name: fess グループ作成
-#   group:
-#     name: fess
-#     state: present
+- name: fess グループ作成
+  group:
+    name: fess
+    state: present
 
-# - name: fess ユーザ作成
-#   user:
-#     name: fess
-#     group: fess
-#     home: /opt/fess
+- name: fess ユーザ作成
+  user:
+    name: fess
+    group: fess
 
 - name: Fess service 存在確認
   sudo: yes
@@ -15,117 +14,38 @@
   register: fess_service
   failed_when: fess_service.rc not in [0, 1]
 
-- name: Fess RPM ダウンロード
+- name: Fess zip ダウンロード
   get_url:
-    url: "{{ fess_rpm_url }}"
-    dest: "{{ download_path }}/{{ fess_rpm_file }}"
+    url: "{{ fess_zip_url }}"
+    dest: "{{ download_path }}/{{ fess_zip_file }}"
     validate_certs: no
     timeout: 120
   when: fess_service.rc == 1
-
-- name: Fess インストール
-  sudo: yes
-  yum:
-    name: "{{ download_path }}/{{ fess_rpm_file }}"
-    state: present
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-kuromoji-neologd プラグインダウンロード
-  get_url:
-    url: "{{ kuromoji_neologd_url }}"
-    dest: "{{ download_path }}/{{ kuromoji_neologd_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-kuromoji-neologd プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ kuromoji_neologd_file }}"
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-ja プラグインダウンロード
-  get_url:
-    url: "{{ analiysis_ja_url }}"
-    dest: "{{ download_path }}/{{ analiysis_ja_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-ja プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ analiysis_ja_file }}"
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-synonym プラグインダウンロード
-  get_url:
-    url: "{{ analiysis_synoym_url }}"
-    dest: "{{ download_path }}/{{ analiysis_synoym_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-analysis-synonym プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ analiysis_synoym_file }}"
-  when: fess_service.rc == 1  
-
-- name: elasticsearch-configsync プラグインダウンロード
-  get_url:
-    url: "{{ configsync_url }}"
-    dest: "{{ download_path }}/{{ configsync_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-configsync プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ configsync_file }}"
-  when: fess_service.rc == 1  
-
-- name: elasticsearch-dataformat プラグインダウンロード
-  get_url:
-    url: "{{ dataformat_url }}"
-    dest: "{{ download_path }}/{{ dataformat_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-dataformat プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ dataformat_file }}"
-  when: fess_service.rc == 1  
-
-- name: elasticsearch-langfield プラグインダウンロード
-  get_url:
-    url: "{{ langfield_url }}"
-    dest: "{{ download_path }}/{{ langfield_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-langfield プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ langfield_file }}"
-  when: fess_service.rc == 1  
-
-# - name: lang-groovy プラグインダウンロード
-#   get_url:
-#     url: "{{ lang_groovy_url }}"
-#     dest: "{{ download_path }}/{{ lang_groovy_file }}"
-#     timeout: 120
-#   when: fess_service.rc == 1
-
-# - name: lang-groovy プラグインをインストール
-#   sudo: yes
-#   shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ lang_groovy_file }}"
-#   when: fess_service.rc == 1  
-
-- name: elasticsearch-kopf プラグインダウンロード
-  get_url:
-    url: "{{ kopf_url }}"
-    dest: "{{ download_path }}/{{ kopf_file }}"
-    timeout: 120
-  when: fess_service.rc == 1
-
-- name: elasticsearch-kopf プラグインをインストール
-  sudo: yes
-  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ kopf_file }}"
-  when: fess_service.rc == 1  
   
+- name: Fess 解凍
+  sudo: yes
+  command:
+    "unzip -o -d /opt {{ download_path }}/{{ fess_zip_file }}"
+  when: fess_service.rc == 1
+
+- name: fess のシンボリックリンク作成
+  sudo: yes
+  file:
+    state: link
+    src: /opt/fess-10.0.3
+    dest: {{ fess_dir }}
+
+- name: fess ディレクトリ以下のオーナーを変更
+  sudo: yes
+  command:
+    chown -R fess {{ fess_dir }}
+
+- name: systemd に fess.service を配置
+  sudo: yes
+  template:
+    src: fess.service.j2
+    dest: /usr/lib/systemd/system/fess.service
+    
 - name: Fess サービス登録
   sudo: yes
   service:
@@ -138,6 +58,3 @@
     state: absent
     path: "{{ download_path }}/{{ fess_rpm_file }}"
   when: fess_service.rc == 1
-
-  
-

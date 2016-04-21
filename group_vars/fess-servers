@@ -9,38 +9,9 @@ download_path: /tmp
 jdk_rpm_file: jdk-8u92-linux-x64.rpm
 jdk_rpm_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/{{ jdk_rpm_file }}
 
-# for elasticsearch
-
-elasticsearch_rpm_file: elasticsearch-2.3.1.rpm
-elasticsearch_rpm_url: https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/rpm/elasticsearch/2.3.1/{{ elasticsearch_rpm_file }}
-
 # for fess
 
-fess_rpm_file: fess-10.0.3.rpm
-fess_rpm_url: https://github.com/codelibs/fess/releases/download/fess-10.0.3/{{ fess_rpm_file }}
+fess_dir: /opt/fess
+fess_zip_file: fess-10.0.3.zip
+fess_zip_url: https://github.com/codelibs/fess/releases/download/fess-10.0.3/{{ fess_rpm_file }}
 
-# for elasticsearch plugins
-
-kuromoji_neologd_file: elasticsearch-analysis-kuromoji-neologd-2.3.0.zip
-kuromoji_neologd_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-analysis-kuromoji-neologd/2.3.0/{{ kuromoji_neologd_file }}
-
-analiysis_ja_file: elasticsearch-analysis-ja-2.3.0.zip
-analiysis_ja_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-analysis-ja/2.3.0/{{ analiysis_ja_file }}
-
-analiysis_synoym_file: elasticsearch-analysis-synonym-2.3.0.zip
-analiysis_synoym_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-analysis-synonym/2.3.0/{{ analiysis_synoym_file }}
-
-configsync_file: elasticsearch-configsync-2.3.0.zip
-configsync_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-configsync/2.3.0/{{ configsync_file }}
-
-dataformat_file: elasticsearch-dataformat-2.3.0.zip
-dataformat_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-dataformat/2.3.0/{{ dataformat_file }}
-
-langfield_file: elasticsearch-langfield-2.3.0.zip
-langfield_url: http://central.maven.org/maven2/org/codelibs/elasticsearch-langfield/2.3.0/{{ langfield_file }}
-
-lang_groovy_file: lang-groovy-2.3.1.zip
-lang_groovy_url: http://central.maven.org/maven2/org/elasticsearch/module/lang-groovy/2.3.1/{{ lang_groovy_file }}
-
-kopf_file: elasticsearch-kopf-2.0.0.0.zip
-kopf_url: http://maven.codelibs.org/archive/elasticsearch/plugin/kopf/{{ kopf_file }}

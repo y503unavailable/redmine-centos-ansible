@@ -8,6 +8,7 @@
   get_url:
     url: "{{ elasticsearch_rpm_url }}"
     dest: "{{ download_path }}/{{ elasticsearch_rpm_file }}"
+    timeout: 120
   when: elasticsearch_service.rc == 1
 
 - name: Elasticsearch インストール
@@ -29,6 +30,7 @@
   when: elasticsearch_service.rc == 1
       
 - name: Elasticsearch サービス登録
+  sudo: yes
   service:
     name: elasticsearch
     enabled: yes

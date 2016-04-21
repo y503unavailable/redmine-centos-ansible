@@ -8,6 +8,7 @@
     url: "{{ jdk_rpm_url }}"
     headers: 'Cookie:oraclelicense=accept-securep-cookie'
     dest: "{{ download_path }}/{{ jdk_rpm_file }}"
+    timeout: 120
   when: java_which.rc == 1
 
 - name: Java インストール

@@ -20,6 +20,7 @@
     url: "{{ fess_rpm_url }}"
     dest: "{{ download_path }}/{{ fess_rpm_file }}"
     validate_certs: no
+    timeout: 120
   when: fess_service.rc == 1
 
 - name: Fess インストール
@@ -29,18 +30,101 @@
     state: present
   when: fess_service.rc == 1
 
-- name: elasticsearch プラグインインストール
+- name: elasticsearch-analysis-kuromoji-neologd プラグインダウンロード
+  get_url:
+    url: "{{ kuromoji_neologd_url }}"
+    dest: "{{ download_path }}/{{ kuromoji_neologd_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-analysis-kuromoji-neologd プラグインをインストール
   sudo: yes
-  shell: |
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-kuromoji-neologd/2.3.0
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-ja/2.3.0
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-analysis-synonym/2.3.0
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-configsync/2.3.0
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-dataformat/2.3.0
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/lang-groovy/2.3.1
-    /usr/share/elasticsearch/bin/plugin install org.codelibs/elasticsearch-langfield/2.3.0
-    /usr/share/elasticsearch/bin/plugin install http://maven.codelibs.org/archive/elasticsearch/plugin/kopf/elasticsearch-kopf-2.0.0.0.zip
-  
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ kuromoji_neologd_file }}"
+  when: fess_service.rc == 1
+
+- name: elasticsearch-analysis-ja プラグインダウンロード
+  get_url:
+    url: "{{ analiysis_ja_url }}"
+    dest: "{{ download_path }}/{{ analiysis_ja_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-analysis-ja プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ analiysis_ja_file }}"
+  when: fess_service.rc == 1
+
+- name: elasticsearch-analysis-synonym プラグインダウンロード
+  get_url:
+    url: "{{ analiysis_synoym_url }}"
+    dest: "{{ download_path }}/{{ analiysis_synoym_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-analysis-synonym プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ analiysis_synoym_file }}"
+  when: fess_service.rc == 1  
+
+- name: elasticsearch-configsync プラグインダウンロード
+  get_url:
+    url: "{{ configsync_url }}"
+    dest: "{{ download_path }}/{{ configsync_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-configsync プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ configsync_file }}"
+  when: fess_service.rc == 1  
+
+- name: elasticsearch-dataformat プラグインダウンロード
+  get_url:
+    url: "{{ dataformat_url }}"
+    dest: "{{ download_path }}/{{ dataformat_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-dataformat プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ dataformat_file }}"
+  when: fess_service.rc == 1  
+
+- name: elasticsearch-langfield プラグインダウンロード
+  get_url:
+    url: "{{ langfield_url }}"
+    dest: "{{ download_path }}/{{ langfield_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-langfield プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ langfield_file }}"
+  when: fess_service.rc == 1  
+
+# - name: lang-groovy プラグインダウンロード
+#   get_url:
+#     url: "{{ lang_groovy_url }}"
+#     dest: "{{ download_path }}/{{ lang_groovy_file }}"
+#     timeout: 120
+#   when: fess_service.rc == 1
+
+# - name: lang-groovy プラグインをインストール
+#   sudo: yes
+#   shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ lang_groovy_file }}"
+#   when: fess_service.rc == 1  
+
+- name: elasticsearch-kopf プラグインダウンロード
+  get_url:
+    url: "{{ kopf_url }}"
+    dest: "{{ download_path }}/{{ kopf_file }}"
+    timeout: 120
+  when: fess_service.rc == 1
+
+- name: elasticsearch-kopf プラグインをインストール
+  sudo: yes
+  shell: /usr/share/elasticsearch/bin/plugin install "file:{{ download_path }}/{{ kopf_file }}"
+  when: fess_service.rc == 1  
   
 - name: Fess サービス登録
   sudo: yes

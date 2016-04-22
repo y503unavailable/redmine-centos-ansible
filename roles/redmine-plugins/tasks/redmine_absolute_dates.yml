@@ -1,7 +1,7 @@
 - name: redmine_absolute_dates ソースコードをダウンロード
   sudo: yes
   git:
-    repo=https://github.com/suer/redmine_absolute_dates
+    repo=https://github.com/suer/redmine_absolute_dates.git
     dest={{ redmine_dir }}/plugins/redmine_absolute_dates
     version=master
     

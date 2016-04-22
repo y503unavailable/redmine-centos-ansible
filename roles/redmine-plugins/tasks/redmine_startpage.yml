@@ -1,0 +1,10 @@
+- name: redmine_startpage ソースコードをダウンロード
+  sudo: yes
+  git:
+    repo=https://github.com/txinto/redmine_startpage.git
+    dest={{ redmine_dir }}/plugins/redmine_startpage
+    version=master
+    
+- name: Restart apache
+  sudo: yes
+  service: name=httpd state=restarted

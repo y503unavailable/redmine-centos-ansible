@@ -16,5 +16,4 @@
   hosts: fess-servers
   roles:
     - java
-    - elasticsearch
     - fess

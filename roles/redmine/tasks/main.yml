@@ -151,25 +151,3 @@
     RAILS_ENV: production
   when:
     result_database_yml|changed
-
-- name: デフォルトデータの登録
-  sudo: yes
-  command:
-    bundle exec rake redmine:load_default_data
-    chdir={{ redmine_dir }}
-  environment:
-    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
-    RAILS_ENV: "production REAMINE_LANG=ja"
-  when:
-    result_database_yml|changed
-
-- name: テキスト書式をmarkdown をデフォルトに
-  sudo: yes
-  command:
-    bundle exec rails r 'Setting["text_formating"]="markdown"'
-    chdir={{ redmine_dir }}
-  environment:
-    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
-    RAILS_ENV: production
-  when:
-    result_database_yml|changed

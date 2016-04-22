@@ -13,5 +13,5 @@ jdk_rpm_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/{{ jdk_rpm_fil
 
 fess_dir: /opt/fess
 fess_zip_file: fess-10.0.3.zip
-fess_zip_url: https://github.com/codelibs/fess/releases/download/fess-10.0.3/{{ fess_rpm_file }}
+fess_zip_url: https://github.com/codelibs/fess/releases/download/fess-10.0.3/{{ fess_zip_file }}
 

@@ -1,9 +1,11 @@
 - name: fess グループ作成
+  sudo: yes
   group:
     name: fess
     state: present
 
 - name: fess ユーザ作成
+  sudo: yes
   user:
     name: fess
     group: fess
@@ -33,18 +35,24 @@
   file:
     state: link
     src: /opt/fess-10.0.3
-    dest: {{ fess_dir }}
+    dest: "{{ fess_dir }}"
 
 - name: fess ディレクトリ以下のオーナーを変更
   sudo: yes
   command:
-    chown -R fess {{ fess_dir }}
+    chown -R fess "{{ fess_dir }}"
 
 - name: systemd に fess.service を配置
   sudo: yes
   template:
     src: fess.service.j2
     dest: /usr/lib/systemd/system/fess.service
+
+- name: proxy設定 localhost/fess を localhost:8080  に転送
+  sudo: yes
+  template:
+    src: fess.conf.j2
+    dest: /etc/httpd/conf.d/fess.conf
     
 - name: Fess サービス登録
   sudo: yes
@@ -52,9 +60,17 @@
     name: fess
     enabled: yes
   when: fess_service.rc == 1
+
+- name: Restart apache
+  sudo: yes
+  service: name=httpd state=restarted
+
+- name: start fess
+  sudo: yes
+  service: name=fess state=started
     
 - name: 不要なファイルの削除
   file:
     state: absent
-    path: "{{ download_path }}/{{ fess_rpm_file }}"
+    path: "{{ download_path }}/{{ fess_zip_file }}"
   when: fess_service.rc == 1

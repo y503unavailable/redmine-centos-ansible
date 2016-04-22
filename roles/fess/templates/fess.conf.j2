@@ -1,4 +1,12 @@
 LoadModule proxy_module modules/mod_proxy.so
 
+ProxyRequests Off
+
+# path /redmine へのリクエストはプロキシしない
+ProxyPass /redmine/ !
+
+# path /repos/ へのリクエストはプロキシしない
+ProxyPass /repos/ !
+
 ProxyPass / http://localhost:8080/
 ProxyPassReverse / http://localhost:8080/

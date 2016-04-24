@@ -43,11 +43,6 @@
   yum:
     name='openssl-devel,readline-devel,zlib-devel,curl-devel,libyaml-devel,libffi-devel'
 
-- name:  PostgreSQLとヘッダファイルのインストール
-  sudo: yes
-  yum:
-    name='postgresql-server,postgresql-devel,python-psycopg2'
-
 - name: Apacheとヘッダファイルのインストール
   sudo: yes
   yum:
@@ -61,7 +56,7 @@
 - name: そのほかのツールのインストール
   sudo: yes
   yum:
-    name='subversion,git'
+    name='subversion,git,ssmtp'
 
 - name: 作業ディレクトリ作成
   file: path={{ work_dir }}

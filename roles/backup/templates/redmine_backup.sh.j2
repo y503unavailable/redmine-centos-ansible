@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Redmine Backup
+
+# 定義
+# バックアップ先フォルダ
+TO_BK_DIR={{ backup_to }}
+
+# 現在日付（バックアップファイル名に使用）
+NOW=`date +%Y%m%d%H`
+
+# DBバックアップ
+mysqldump -u DB_USER -pDB_PASS DB_NAME | gzip > $TO_BK_DIR/redmine/redmine_db_$NOW.sql.gzip
+# アップロードファイルバックアップ
+gzip -rc /REDMINE_ROOT/files > $TO_BK_DIR/redmine_upload_$NOW.tgz
+# リポジトリバックアップ
+
+# 世代管理（更新日が７日以前のものは削除）
+find $TO_BK_DIR/ -mtime +7 -type f -exec rm -f {} \;
+
+# バックアップサーバと同期
+rsync -avz --delete -e ssh $TO_BK_DIR/ username@remote_server:$TO_BK_DIR/

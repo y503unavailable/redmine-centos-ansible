@@ -15,9 +15,9 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 ## システム構成
 
-* Redmine 3.2
+* Redmine 3.3
 * CentOS 7
-* PostgreSQL
+* mariadb
 * Apache
 
 
@@ -36,12 +36,12 @@ yum install -y ansible git
 ### playbookのダウンロード
 
 ```
-git clone https://github.com/farend/redmine-centos-ansible.git
+git clone https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
-### PostgreSQLに設定するパスワードの変更
+### mariadbに設定するパスワードの変更
 
-ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` を適当な内容に変更してください。これはPostgreSQLのRedmine用ユーザー redmine に設定されるパスワードです。
+ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
 
 ### playbook実行
 
@@ -53,7 +53,7 @@ ansible-playbook -i hosts site.yml
 ```
 
 10〜20分ほどでインストールが完了します。webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
-
+初期パスワードはadmin/adminです。セキュリテイ上、インストール後，直ちに変更してください。
 
 ## ライセンス
 

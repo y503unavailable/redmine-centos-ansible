@@ -15,5 +15,5 @@
 - name: fess サーバ構築
   hosts: fess-servers
   roles:
-    - java
-    - fess
+#    - java
+#    - fess

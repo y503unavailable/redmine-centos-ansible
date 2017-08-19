@@ -6,7 +6,7 @@ db_passwd_root: pass-word2
 
 # Redmineのチェックアウト元URL
 redmine_svn_url: http://svn.redmine.org/redmine/branches/3.3-stable
-redmine_git_url: https://github.com/redmine/redmine.git
+redmine_git_url: https://github.com/y503unavailable/redmine.git
 redmine_git_branch: 3.3-stable
 
 # Redmineのデプロイ先ディレクトリ

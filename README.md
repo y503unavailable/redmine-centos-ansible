@@ -55,12 +55,21 @@ git clone https://github.com/y503unavailable/redmine-centos-ansible.git
 下記コマンドを実行してください。Redmineの自動インストールが開始されます。
 
 ```
+systemctl enable firewalld
+systemctl start  firewalld
+systemctl stop iptables
+systemctl disable iptables
+```
+
+```
 cd redmine-centos-ansible
 ansible-playbook -i hosts site.yml
 ```
 
 10〜20分ほどでインストールが完了します。webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
-初期パスワードはadmin/adminです。セキュリテイ上、インストール後，直ちに変更してください。
+
+初期パスワードはadmin/adminです。
+セキュリテイ上、インストール後，直ちに変更してください。
 
 ## ライセンス
 

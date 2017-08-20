@@ -3,3 +3,13 @@
 - include: redmine_scm.yml
 - include: redmine_startpage.yml
 - include: redmine_issue_templates.yml
+
+- name: db migration
+  sudo: yes
+  command:
+    bundle exec rake redmine:plugins:migrate
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+    

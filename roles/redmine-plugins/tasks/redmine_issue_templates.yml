@@ -1,0 +1,10 @@
+- name: redmine_issue_templates
+  sudo: yes
+  git:
+    repo=https://github.com/akiko-pusu/redmine_issue_templates.git
+    dest={{ redmine_dir }}/plugins/redmine_issue_templates
+    version=master
+    
+- name: Restart redmine
+  sudo: yes
+  service: name=httpd state=restarted

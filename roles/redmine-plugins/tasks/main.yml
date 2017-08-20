@@ -2,5 +2,4 @@
 - include: redmine_wiki_extensions.yml 
 - include: redmine_scm.yml
 - include: redmine_startpage.yml
-- include: redmine_issue_templates
-
+- include: redmine_issue_templates.yml

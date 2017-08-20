@@ -78,4 +78,8 @@ MIT License
 
 ## 作者
 
+y503unavailable
+
+原作
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
+https://github.com/farend/redmine-centos-ansible

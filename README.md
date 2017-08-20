@@ -8,7 +8,10 @@
 ## 注意事項
 
 本プレイブックは、Redmine3.3対応 UnofficialCooking版(闇鍋版)です。
+
 Redmine標準外の変更取込、backport、Pluginの一括インストールを行っていますので、くれぐれも自己責任でご利用ください。
+
+https://redmine.tokyo/projects/unofficialcooking
 
 ## 概要
 

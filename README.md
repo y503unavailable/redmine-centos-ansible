@@ -9,16 +9,26 @@
 
 本プレイブックは、Redmine3.3対応 UnofficialCooking版(闇鍋版)です。
 
-Redmine標準外の変更取込、backport、Pluginの一括インストールを行っていますので、くれぐれも自己責任でご利用ください。
+Redmine標準外の変更取込、backport、Pluginの一括インストールを行っています。
+
+くれぐれも自己責任でご利用ください。
 
 https://redmine.tokyo/projects/unofficialcooking
 
 ## 概要
 
-Ansibleを使ってRedmineを自動インストールするためのプレイブックです。以下のwebサイトで紹介されている手順におおむね準拠しています。
+Ansibleを使ってRedmineを自動インストールするためのプレイブックです。
+
+以下のwebサイトで紹介されている手順におおむね準拠しています。
 
 [Redmine 3.2をCentOS 7.1にインストールする手順](http://blog.redmine.jp/articles/3_2/install/centos/)
 
+変更内容は下記参照ください。
+
+取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
+
+https://github.com/y503unavailable/redmine-centos-ansible/commits/3.3-unofficialcooking
+https://redmine.tokyo/projects/unofficialcooking
 
 ## システム構成
 
@@ -78,8 +88,17 @@ MIT License
 
 ## 作者
 
-y503unavailable
+y503unavailable （Redmine.Tokyoスタッフ）
+
+[Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)
+
+[Redmine マストドン](https://toot.redmine.jp/@y503unavailable)
+
+[Twitter y503unavailable](@y503unavailable)
 
 原作
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
 https://github.com/farend/redmine-centos-ansible
+
+Fork元
+https://github.com/ssaito/redmine-centos-ansible

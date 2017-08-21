@@ -3,7 +3,9 @@
 
 最小構成でインストールしたCentOSにRedmineを自動インストールするためのAnsibleプレイブックです。
 
-コマンド5個実行するだけで、あとはしばらく放置すればインストールが完了します。
+コマンド数行コピペ実行するだけで、あとはしばらく放置すればインストールが完了します。
+
+乗っ取りのセキュリテイリスクがあるため、インストール後は直ちにadminパスワードを変更してください。
 
 ## 注意事項
 
@@ -43,7 +45,7 @@ yum install -y ansible git
 ### playbookのダウンロード
 
 ```
-git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b 3.3-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 ### mariadbに設定するパスワードの変更
@@ -66,15 +68,15 @@ cd redmine-centos-ansible
 ansible-playbook -i hosts site.yml
 ```
 
-10〜20分ほどでインストールが完了します。webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
+10〜20分ほどでインストールが完了します。（所要時間は動作環境の性能依存）
+webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
 
 初期パスワードはadmin/adminです。
-セキュリテイ上、インストール後，直ちに変更してください。
+セキュリテイリスクがあるため、インストール後は直ちにadminパスワードを変更してください。
 
 ## ライセンス
 
 MIT License
-
 
 ## 作者
 
@@ -83,3 +85,7 @@ y503unavailable
 原作
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
 https://github.com/farend/redmine-centos-ansible
+
+Fork元
+https://github.com/ssaito/redmine-centos-ansible
+（mariadb対応、pluginインストール対応、多謝）

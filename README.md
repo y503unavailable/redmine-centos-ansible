@@ -90,13 +90,13 @@ MIT License
 
 y503unavailable （Redmine.Tokyoスタッフ）
 
-[Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)
+連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable)   [Twitter y503unavailable](https://twitter.com/y503unavailable)
 
-[Redmine マストドン](https://toot.redmine.jp/@y503unavailable)
+[Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 
-[Twitter y503unavailable](@y503unavailable)
+## 本プレイブックについて
 
-原作
+原作 
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
 https://github.com/farend/redmine-centos-ansible
 

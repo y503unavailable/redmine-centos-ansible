@@ -3,6 +3,9 @@
 db_passwd_redmine: pass-word1
 db_passwd_root: pass-word2
 # ----------------------------------------------------------------------
+# Redmineのadmin初期パスワード (変更推奨)
+redmine_admin_passwd: unofficial-cracking
+# ----------------------------------------------------------------------
 
 # Redmineのチェックアウト元URL
 redmine_svn_url: http://svn.redmine.org/redmine/branches/3.3-stable

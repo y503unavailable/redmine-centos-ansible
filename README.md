@@ -9,11 +9,21 @@
 
 本プレイブックは、Redmine3.3対応 UnofficialCooking版(闇鍋版)です。
 
-Redmine標準外の変更取込、backport、Pluginの一括インストールを行っています。
+Redmine標準外の変更取込、backport、admin初期パスワードの変更、Pluginの一括インストールを行っています。
 
 くれぐれも自己責任でご利用ください。
 
 https://redmine.tokyo/projects/unofficialcooking
+
+### admin初期パスワードの変更
+
+Redmineインストール直後のadmin初期パスワードは admin で固定されており、インストール直後に乗っ取られる可能性を否定できません。（特にインターネット上VPS等を利用する場合）
+
+そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。
+
+admin初期パスワード  unofficial-cracking 
+
+必要に応じ変更ください。
 
 ## 概要
 
@@ -56,6 +66,14 @@ yum install -y ansible git
 git clone https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
+### Redmine admin 初期パスワードの変更
+
+admin初期パスワードを変更する場合は、下記変更ください。
+
+group_vars/redmine-servers
+
+redmine_admin_passwd: unofficial-cracking
+
 ### mariadbに設定するパスワードの変更
 
 ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
@@ -76,10 +94,11 @@ cd redmine-centos-ansible
 ansible-playbook -i hosts site.yml
 ```
 
-10〜20分ほどでインストールが完了します。webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
+10〜20分ほどでインストールが完了します。
 
-初期パスワードはadmin/adminです。（近日変更予定）
-セキュリテイ上、インストール後，直ちに変更してください。
+webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
+
+初期パスワードは admin/ unofficial-cracking です。（標準から変更）
 
 ## ライセンス
 

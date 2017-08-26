@@ -11,6 +11,8 @@
 
 本プレイブックは、Redmine3.3対応 UnofficialCooking版(闇鍋版)です。
 
+対応するRedmineバージョンでブランチ作成していますので、利用時はブランチ確認ください。
+
 Redmine標準外の変更取込、backport、Pluginの一括インストールを行っていますので、くれぐれも自己責任でご利用ください。
 
 https://redmine.tokyo/projects/unofficialcooking

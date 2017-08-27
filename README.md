@@ -60,10 +60,10 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード
+### playbookのダウンロード(下記は作業用ブランチ）
 
 ```
-git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b 3.3-unofficialcooking-issue3 https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 ### Redmine admin 初期パスワードの変更

@@ -13,6 +13,10 @@ Redmine標準外の変更取込、backport、admin初期パスワードの変更
 
 くれぐれも自己責任でご利用ください。
 
+標準からの変更内容は下記参照
+
+https://github.com/y503unavailable/redmine/blob/3.3-unofficialcooking/README.rdoc
+
 https://redmine.tokyo/projects/unofficialcooking
 
 ### admin初期パスワードの変更

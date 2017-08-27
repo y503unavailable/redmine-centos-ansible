@@ -13,22 +13,6 @@ Redmine標準外の変更取込、backport、admin初期パスワードの変更
 
 くれぐれも自己責任でご利用ください。
 
-標準からの変更内容は下記参照
-
-https://github.com/y503unavailable/redmine/blob/3.3-unofficialcooking/README.rdoc
-
-https://redmine.tokyo/projects/unofficialcooking
-
-### admin初期パスワードの変更
-
-Redmineインストール直後のadmin初期パスワードは admin で固定されており、インストール直後に乗っ取られる可能性を否定できません。（特にインターネット上VPS等を利用する場合）
-
-そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。
-
-admin初期パスワード  unofficial-cracking 
-
-必要に応じ変更ください。
-
 ## 概要
 
 Ansibleを使ってRedmineを自動インストールするためのプレイブックです。
@@ -37,12 +21,23 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 [Redmine 3.2をCentOS 7.1にインストールする手順](http://blog.redmine.jp/articles/3_2/install/centos/)
 
-変更内容は下記参照ください。
+## Redmine標準からの変更内容
+
+標準からの変更内容は下記参照ください。
 
 取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
 
-https://github.com/y503unavailable/redmine-centos-ansible/commits/3.3-unofficialcooking
+https://github.com/y503unavailable/redmine/blob/3.3-unofficialcooking/README.rdoc
+
 https://redmine.tokyo/projects/unofficialcooking
+
+## admin初期パスワードの変更
+
+Redmineインストール直後のadmin初期パスワードは admin で固定されており、インストール直後に乗っ取られる可能性を否定できません。（特にインターネット上VPS等を利用する場合）
+
+そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。必要に応じ変更ください。
+
+admin初期パスワード  unofficial-cracking 
 
 ## システム構成
 
@@ -72,7 +67,7 @@ git clone -b 3.3-unofficialcooking-issue3 https://github.com/y503unavailable/red
 
 ### Redmine admin 初期パスワードの変更
 
-admin初期パスワードを変更する場合は、下記変更ください。
+admin初期パスワードを変更する場合は、下記箇所を変更ください。
 
 group_vars/redmine-servers
 
@@ -113,7 +108,7 @@ MIT License
 
 y503unavailable （Redmine.Tokyoスタッフ）
 
-連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable)   [Twitter y503unavailable](https://twitter.com/y503unavailable)
+連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable) 、  [Twitter y503unavailable](https://twitter.com/y503unavailable)
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 

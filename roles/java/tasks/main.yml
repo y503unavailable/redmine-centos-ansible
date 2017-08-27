@@ -12,7 +12,7 @@
   when: java_which.rc == 1
 
 - name: Java インストール
-  sudo: yes
+  become: yes
   yum:
     name: "{{ download_path }}/{{ jdk_rpm_file }}"
     state: present
@@ -22,8 +22,8 @@
 #   lineinfile:
 #     dest: ~/.bash_login
 #     line: 'export JAVA_HOME=/usr/java/default'
-#   sudo: yes
-#   sudo_user: zeppelin
+#   become: yes
+#   become_user: zeppelin
   
 - name: 不要なファイルの削除
   file:

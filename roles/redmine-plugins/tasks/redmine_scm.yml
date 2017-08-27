@@ -1,12 +1,12 @@
 - name: redmine_scm ソースコードをダウンロード
-  sudo: yes
+  become: yes
   git:
     repo=https://github.com/alminium/redmine_scm.git
     dest={{ redmine_dir }}/plugins/redmine_scm
     version=redmine-3.2.x
  
 - name: db マイグレート
-  sudo: yes
+  become: yes
   command:
     bundle exec rake redmine:plugins:migrate
     chdir={{ redmine_dir }}
@@ -15,7 +15,7 @@
     RAILS_ENV: production
 
 - name: copy scm.yml
-  sudo: yes
+  become: yes
   copy:
     src: scm.yml
     dest: "{{ redmine_dir }}/config"
@@ -24,7 +24,7 @@
     mode: 0775
 
 - name: リポジトリ用ディレクトリの作成 /var/www/repos/svn
-  sudo: yes
+  become: yes
   file:
     path: /var/www/repos/svn
     state: directory
@@ -35,7 +35,7 @@
     mode: 0775
 
 - name: リポジトリ用ディレクトリの作成 /var/www/repos/git
-  sudo: yes
+  become: yes
   file:
     path: /var/www/repos/git
     state: directory
@@ -46,12 +46,12 @@
     mode: 0775
 
 - name: httpd とリポジトリの認証連携に必要なライブラリをインストール
-  sudo: yes
+  become: yes
   yum:
     name: mod_perl,perl,mod_dav_svn,perl-Digest-SHA
 
 - name: リポジトリの認証連携の設定ファイル vcs.conf を配置
-  sudo: yes
+  become: yes
   template:
     src: vcs.conf.j2
     dest: /etc/httpd/conf.d/vcs.conf
@@ -59,13 +59,13 @@
     mode: 775
 
 - name: git リポジトリの認証連携のモジュールファイルをリンク用のディレクトリ作成
-  sudo: yes
+  become: yes
   file:
     dest: /etc/httpd/Apache/Authn
     state: directory
     
 - name: git リポジトリの認証連携のモジュールファイルをリンク
-  sudo: yes
+  become: yes
   file:
     src: "{{ redmine_dir }}/extra/svn/Redmine.pm"
     dest: /etc/httpd/Apache/Authn/Redmine.pm
@@ -73,5 +73,5 @@
       
     
 - name: Restart redmine
-  sudo: yes
+  become: yes
   service: name=httpd state=restarted

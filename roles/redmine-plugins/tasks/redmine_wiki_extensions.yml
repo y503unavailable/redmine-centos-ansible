@@ -1,16 +1,16 @@
 - name: redmine_wiki_extensions ソースコードをダウンロード
-  sudo: yes
+  become: yes
   get_url:
     url: https://bitbucket.org/haru_iida/redmine_wiki_extensions/downloads/redmine_wiki_extensions-0.7.0.zip
     dest: /tmp
 
 - name: redmine_wiki_extensions ソースコードを解凍
-  sudo: yes
+  become: yes
   command:
     unzip -o -d {{ redmine_dir }}/plugins /tmp/redmine_wiki_extensions-0.7.0.zip
  
 - name: Run rake
-  sudo: yes
+  become: yes
   command:
     bundle exec rake redmine:plugins:migrate
     chdir={{ redmine_dir }}
@@ -19,5 +19,5 @@
     RAILS_ENV: production
 
 - name: Restart redmine
-  sudo: yes
+  become: yes
   service: name=httpd state=restarted

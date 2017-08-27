@@ -1,13 +1,13 @@
 - name: MariaDBのインストール
-  sudo: yes
+  become: yes
   yum: name='mariadb-server,mariadb-devel'
 
 - name: MySQL-pythonのインストール (Ansibleが使用)
-  sudo: yes
+  become: yes
   yum: name='MySQL-python'
 
 - name: MariaDB 起動・自動起動設定
-  sudo: yes
+  become: yes
   service: name=mariadb state=started enabled=yes
   
 - name: rootパスワード設定
@@ -22,11 +22,11 @@
     - localhost
   
 - name: /etc/my.cnfを作成
-  sudo: yes
+  become: yes
   template: src=my.cnf.j2 dest=/etc/my.cnf owner=root group=root mode=0644
 
 - name: /root/.my.cnf を作成
-  sudo: yes
+  become: yes
   template:
     src: .my.cnf.j2
     dest: "{{ lookup('env', 'HOME')}}/.my.cnf"

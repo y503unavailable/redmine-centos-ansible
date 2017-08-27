@@ -5,7 +5,7 @@
 - include: redmine_issue_templates.yml
 
 - name: db migration
-  sudo: yes
+  become: yes
   command:
     bundle exec rake redmine:plugins:migrate
     chdir={{ redmine_dir }}

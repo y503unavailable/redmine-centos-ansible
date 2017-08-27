@@ -22,7 +22,7 @@
   register: firewalld_is_running
   ignore_errors: yes
   changed_when: false
-  always_run: yes
+  check_mode: no
 
 - name: firewalldでHTTPを許可
   become: yes

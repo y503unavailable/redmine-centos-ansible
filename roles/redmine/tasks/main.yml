@@ -79,6 +79,19 @@
   when:
     result_database_yml|changed
 
+- name: make redmine_admin_passchg.rb
+  sudo: yes
+  template:
+    src=redmine_admin_passchg.rb.j2
+    dest=/tmp/redmine_admin_passchg.rb
+    force=no
+
+- name: change admin passwd
+  sudo: yes
+  shell:   RAILS_ENV=production bundle exec rails console  < /tmp/redmine_admin_passchg.rb
+  args:
+    chdir: "{{ redmine_dir }}"
+
 - name: farend_basicテーマのダウンロード
   sudo: yes
   git:

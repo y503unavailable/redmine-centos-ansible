@@ -59,7 +59,7 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード(下記は作業用ブランチ）
+### playbookのダウンロード(下記は3.3-unofficialcookingブランチ）
 
 ```
 git clone -b 3.3-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git

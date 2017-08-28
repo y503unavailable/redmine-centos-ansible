@@ -1,13 +1,12 @@
-- name: redmine_wiki_extensions ソースコードをダウンロード
+- name: redmine_wiki_extensions_download
   become: yes
   get_url:
     url: https://bitbucket.org/haru_iida/redmine_wiki_extensions/downloads/redmine_wiki_extensions-0.7.0.zip
     dest: /tmp
 
-- name: redmine_wiki_extensions ソースコードを解凍
+- name: redmine_wiki_extensions_extract
   become: yes
-  command:
-    unzip -o -d {{ redmine_dir }}/plugins /tmp/redmine_wiki_extensions-0.7.0.zip
+  unarchive: src=/tmp/redmine_wiki_extensions-0.7.0.zip dest={{ redmine_dir }}/plugins
  
 - name: Run rake
   become: yes

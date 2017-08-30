@@ -31,6 +31,12 @@ https://github.com/y503unavailable/redmine/blob/3.3-unofficialcooking/README.rdo
 
 https://redmine.tokyo/projects/unofficialcooking
 
+## 同時インストールするプラグイン
+
+下記参照ください。
+
+https://github.com/y503unavailable/redmine-centos-ansible/tree/3.3-unofficialcooking/roles/redmine-plugins/tasks
+
 ## admin初期パスワードの変更
 
 Redmineインストール直後のadmin初期パスワードは admin で固定されており、インストール直後に乗っ取られる可能性を否定できません。（特にインターネット上VPS等を利用する場合）

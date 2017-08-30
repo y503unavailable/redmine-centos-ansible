@@ -1,0 +1,22 @@
+- name: redmine_full_text_search_groonga
+  yum: name=https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm state=present
+
+- name: redmine_full_text_search_mariadb-mroonga
+  yum: pkg=mariadb-mroonga state=present enablerepo=epel
+
+- name: redmine_full_text_search
+  become: yes
+  git:
+    repo=https://github.com/okkez/redmine_full_text_search.git
+    dest={{ redmine_dir }}/plugins/full_text_search
+    version=master
+
+- name: redmine_full_text_search_bundle_install
+  become: yes
+  command:
+    bundle install
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+    

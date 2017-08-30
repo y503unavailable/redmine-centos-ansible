@@ -7,16 +7,4 @@
 - name: redmine_wiki_extensions_extract
   become: yes
   unarchive: src=/tmp/redmine_wiki_extensions-0.7.0.zip dest={{ redmine_dir }}/plugins
- 
-- name: Run rake
-  become: yes
-  command:
-    bundle exec rake redmine:plugins:migrate
-    chdir={{ redmine_dir }}
-  environment:
-    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
-    RAILS_ENV: production
 
-- name: Restart redmine
-  become: yes
-  service: name=httpd state=restarted

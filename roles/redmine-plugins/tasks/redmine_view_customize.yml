@@ -1,0 +1,7 @@
+- name: redmine_startpage
+  become: yes
+  git:
+    repo=https://github.com/onozaty/redmine-view-customize.git
+    dest={{ redmine_dir }}/plugins/view_customize
+    version=master
+    

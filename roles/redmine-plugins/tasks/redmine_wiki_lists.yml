@@ -1,0 +1,7 @@
+- name: redmine_wiki_lists
+  become: yes
+  git:
+    repo=https://github.com/tkusukawa/redmine_wiki_lists.git
+    dest={{ redmine_dir }}/plugins/redmine_wiki_lists
+    version=master
+    

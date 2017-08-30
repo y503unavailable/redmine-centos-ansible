@@ -5,6 +5,3 @@
     dest={{ redmine_dir }}/plugins/redmine_absolute_dates
     version=master
     
-- name: Restart redmine
-  become: yes
-  service: name=httpd state=restarted

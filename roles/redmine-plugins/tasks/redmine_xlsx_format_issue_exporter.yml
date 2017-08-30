@@ -1,0 +1,16 @@
+- name: redmine_xlsx_format_issue_exporter
+  become: yes
+  git:
+    repo=https://github.com/two-pack/redmine_xlsx_format_issue_exporter.git 
+    dest={{ redmine_dir }}/plugins/redmine_xlsx_format_issue_exporter
+    version=master
+ 
+- name: redmine_xlsx_format_issue_exporter_bundle_install
+  become: yes
+  command:
+    bundle install --without test
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+    

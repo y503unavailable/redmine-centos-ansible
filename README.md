@@ -7,9 +7,9 @@
 
 ## 注意事項
 
-本プレイブックは、Redmine3.3対応 UnofficialCooking版(闇鍋版)です。
+本プレイブックは、Redmine3.4対応 UnofficialCooking版(闇鍋版)です。
 
-Redmine標準外の変更取込、backport、admin初期パスワードの変更、Pluginの一括インストールを行っています。
+Redmine標準外の変更取込、backport、admin初期パスワードの変更、Pluginの一括インストールを行います。(2017/9/2時点では本家+プラグイン）
 
 くれぐれも自己責任でご利用ください。
 
@@ -27,7 +27,7 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
 
-https://github.com/y503unavailable/redmine/blob/3.3-unofficialcooking/README.rdoc
+https://github.com/y503unavailable/redmine/blob/3.4-unofficialcooking/README.rdoc     （未作成）
 
 https://redmine.tokyo/projects/unofficialcooking
 
@@ -35,7 +35,7 @@ https://redmine.tokyo/projects/unofficialcooking
 
 下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/3.3-unofficialcooking/roles/redmine-plugins/tasks
+https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks
 
 ## admin初期パスワードの変更
 
@@ -47,7 +47,7 @@ admin初期パスワード  unofficial-cracking
 
 ## システム構成
 
-* Redmine 3.3
+* Redmine 3.4
 * CentOS 7
 * mariadb
 * Apache
@@ -65,10 +65,10 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード(下記は3.3-unofficialcookingブランチ）
+### playbookのダウンロード(3.4-unofficialcookingブランチ）
 
 ```
-git clone -b 3.3-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b 3.4-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 ### Redmine admin 初期パスワードの変更

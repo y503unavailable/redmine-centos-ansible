@@ -10,7 +10,7 @@ redmine_admin_passwd: unofficial-cracking
 # Redmineのチェックアウト元URL(本プレイブックではGit使用)
 # redmine_svn_url: http://svn.redmine.org/redmine/branches/3.3-stable
 redmine_git_url: https://github.com/y503unavailable/redmine.git
-redmine_git_branch: 3.4-stable
+redmine_git_branch: 3.3-unofficialcooking
 
 # Redmineのデプロイ先ディレクトリ
 redmine_dir: /var/lib/redmine
@@ -25,8 +25,8 @@ redmine_font_path: /usr/share/fonts/truetype/takao-gothic/TakaoPGothic.ttf
 pg_hba_conf_path: /var/lib/pgsql/data/pg_hba.conf
 
 # ダウンロードするRubyのソースコード
-ruby_url_dir: https://cache.ruby-lang.org/pub/ruby/2.4
-ruby_archive_version: ruby-2.4.1
+ruby_url_dir: https://cache.ruby-lang.org/pub/ruby/2.3
+ruby_archive_version: ruby-2.3.4
 ruby_archive_ext: tar.bz2
 ruby_archive_name: "{{ ruby_archive_version }}.{{ ruby_archive_ext }}"
 

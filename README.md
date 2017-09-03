@@ -35,7 +35,7 @@ https://redmine.tokyo/projects/unofficialcooking
 
 下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks
+https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks/main.yml
 
 ## admin初期パスワードの変更
 

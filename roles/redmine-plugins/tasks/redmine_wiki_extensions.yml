@@ -1,10 +1,10 @@
 - name: redmine_wiki_extensions_download
   become: yes
   get_url:
-    url: https://bitbucket.org/haru_iida/redmine_wiki_extensions/downloads/redmine_wiki_extensions-0.7.0.zip
+    url: https://github.com/haru/redmine_wiki_extensions/releases/download/0.8.1/redmine_wiki_extensions-0.8.1.zip
     dest: /tmp
 
 - name: redmine_wiki_extensions_extract
   become: yes
-  unarchive: src=/tmp/redmine_wiki_extensions-0.7.0.zip dest={{ redmine_dir }}/plugins
+  unarchive: src=/tmp/redmine_wiki_extensions-0.8.1.zip dest={{ redmine_dir }}/plugins
 

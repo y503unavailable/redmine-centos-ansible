@@ -4,7 +4,7 @@
 - include: redmine_startpage.yml
 - include: redmine_issue_templates.yml
 - include: redmine_banner.yml
-- include: redmine_scm.yml
+# 3.4 incompatible now - include: redmine_scm.yml
 - include: redmine_view_customize.yml
 - include: redmine_wiki_lists.yml
 - include: redmine_work_time.yml

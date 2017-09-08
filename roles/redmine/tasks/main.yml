@@ -116,12 +116,6 @@
     repo=https://github.com/taqueci/PurpleMine2.git
     dest={{ redmine_dir }}/public/themes/PurpleMine2
 
-- name: theme-minimalflat2 のダウンロード
-  become: yes
-  git:
-    repo=https://github.com/akabekobeko/redmine-theme-minimalflat2.git
-    dest={{ redmine_dir }}/public/themes/minimalflat2
-
 - name: テーマをredmine_flat に切り替え
   become: yes
   command:

@@ -22,6 +22,16 @@
     repo=https://github.com/taqueci/PurpleMine2.git
     dest={{ redmine_dir }}/public/themes/PurpleMine2
 
+- name: redmine_theme_minimalflat2_download
+  become: yes
+  get_url:
+    url: https://github.com/akabekobeko/redmine-theme-minimalflat2/releases/download/v1.3.4/minimalflat2-1.3.4.zip
+    dest: /tmp
+
+- name: redmine_theme_minimalflat2_extract
+  become: yes
+  unarchive: src=/tmp/minimalflat2-1.3.4.zip dest={{ redmine_dir }}/public/themes/minimalflat
+
 - name: change deafult theme setting
   become: yes
   command:

@@ -1,28 +1,28 @@
-- name: farend_basicテーマのダウンロード
+- name: farend_basic theme download
   become: yes
   git:
     repo=https://github.com/farend/redmine_theme_farend_basic.git
     dest={{ redmine_dir }}/public/themes/farend_basic
 
-- name: flat_theme のダウンロード
+- name: flat_theme theme download
   become: yes
   git:
     repo=https://github.com/ssaito/redmine-theme-flat.git
     dest={{ redmine_dir }}/public/themes/redmine_flat
 
-- name: theme_gitmike のダウンロード
+- name: theme_gitmike theme download
   become: yes
   git:
     repo=https://github.com/makotokw/redmine-theme-gitmike.git
     dest={{ redmine_dir }}/public/themes/gitmike
 
-- name: theme_purplemine2 のダウンロード
+- name: theme_purplemine2 theme download
   become: yes
   git:
     repo=https://github.com/taqueci/PurpleMine2.git
     dest={{ redmine_dir }}/public/themes/PurpleMine2
 
-- name: テーマをredmine_flat に切り替え
+- name: change deafult theme setting
   become: yes
   command:
     bundle exec rails r 'Setting["ui_theme"]="redmine_flat"'

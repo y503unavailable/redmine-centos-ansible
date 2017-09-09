@@ -28,14 +28,18 @@
     url: https://github.com/akabekobeko/redmine-theme-minimalflat2/releases/download/v1.3.4/minimalflat2-1.3.4.zip
     dest: /tmp
 
+- name: redmine_theme_minimalflat2_dir
+  become: yes
+  file: path={{ redmine_dir }}/public/themes/minimalflat2 state=directory owner=root group=root mode=0755
+
 - name: redmine_theme_minimalflat2_extract
   become: yes
-  unarchive: src=/tmp/minimalflat2-1.3.4.zip dest={{ redmine_dir }}/public/themes/minimalflat
+  unarchive: src=/tmp/minimalflat2-1.3.4.zip dest={{ redmine_dir }}/public/themes
 
-- name: change deafult theme setting
+- name: default_theme
   become: yes
   command:
-    bundle exec rails r 'Setting["ui_theme"]="redmine_flat"'
+    bundle exec rails r 'Setting["ui_theme"]="{{ redmine_default_theme }}"'
     chdir={{ redmine_dir }}
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"

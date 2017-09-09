@@ -32,3 +32,6 @@ ruby_archive_name: "{{ ruby_archive_version }}.{{ ruby_archive_ext }}"
 
 ruby_file_name: /usr/local/bin/ruby
 work_dir: /tmp/redmine-setup
+
+# theme初期値指定
+redmine_default_theme: redmine_flat

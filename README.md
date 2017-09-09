@@ -9,7 +9,7 @@
 
 本プレイブックは、Redmine3.4対応 UnofficialCooking版(闇鍋版)です。
 
-Redmine標準外の変更取込、backport、admin初期パスワードの変更、Pluginの一括インストールを行います。(2017/9/2時点では本家+プラグイン）
+Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。(2017/9/10時点では本家+プラグイン+テーマ）
 
 くれぐれも自己責任でご利用ください。
 
@@ -78,6 +78,16 @@ admin初期パスワードを変更する場合は、下記箇所を変更くだ
 group_vars/redmine-servers
 
 redmine_admin_passwd: unofficial-cracking
+
+### Redmine admin 初期テーマの変更
+
+初期設定されるテーマを変更する場合は、下記箇所を変更ください。
+
+インストールされるテーマの一覧は、Redmineインストール下の/public/themes/を参照ください。
+
+group_vars/redmine-servers
+
+redmine_default_theme: redmine_flat
 
 ### mariadbに設定するパスワードの変更
 

@@ -9,6 +9,7 @@
 - include: redmine_work_time.yml
 - include: redmine_xlsx_format_issue_exporter.yml
 - include: redmine_pivot_table.yml
+- include: redmine_full_text_search.yml
 
 - name: db migration
   become: yes

@@ -118,7 +118,7 @@ group_vars/redmine-servers
 
 redmine_admin_passwd: unofficial-cracking
 
-### Redmine admin 初期テーマの変更
+### Redmine 初期テーマの変更
 
 初期設定されるテーマを変更する場合は、下記箇所を変更ください。
 

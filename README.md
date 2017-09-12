@@ -134,6 +134,26 @@ redmine_default_theme: redmine_flat
 
 ---
 
+### Dockerを使用したPlaybookの実行
+
+下記のコマンドでPlaybookを実行できるDockerコンテナのビルドができます。
+```
+$ git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+$ cd redmine-centos-ansible
+$ docker build -t redmine-centos-ansible .
+```
+
+下記のコマンドでビルドしたDockerコンテナでPlaybookを実行できます。
+```
+$ docker run --privileged --name redmine-centos-ansible -d -p 8080:80 redmine-centos-ansible /sbin/init
+$ docker exec -ti redmine-centos-ansible /bin/bash
+＜コンテナに入ると、リポジトリをチェックアウトした状態のフォルダがカレントになっています。＞
+＜ここで上記に従い、パスワードの変更などを行ってください。＞
+# ansible-playbook -i hosts site.yml
+```
+
+Webブラウザで `http://サーバIPアドレス:8080/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
+
 ## ライセンス
 
 MIT License

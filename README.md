@@ -33,7 +33,9 @@ https://redmine.tokyo/projects/unofficialcooking
 
 ## 同時インストールするプラグイン
 
-下記参照ください。
+full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage  (2017/9/12現在)
+
+詳細は下記参照ください。
 
 https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks/main.yml
 
@@ -49,7 +51,7 @@ https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcoo
 
 Redmineインストール直後のadmin初期パスワードは admin で固定されており、インストール直後に乗っ取られる可能性を否定できません。（特にインターネット上VPS等を利用する場合）
 
-そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。必要に応じ変更ください。
+そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。初期パスワードは必要に応じ変更ください。
 
 admin初期パスワード  unofficial-cracking 
 
@@ -60,6 +62,7 @@ admin初期パスワード  unofficial-cracking
 * mariadb
 * Apache
 
+---
 
 ## Redmineのインストール手順
 
@@ -100,6 +103,8 @@ ansible-playbook -i hosts site.yml
 webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
 
 初期パスワードは admin/ unofficial-cracking です。（標準から変更）
+
+---
 
 ## 初期設定の変更
 

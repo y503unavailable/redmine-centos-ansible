@@ -11,7 +11,9 @@
 
 Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。(2017/9/10時点では本家+プラグイン+テーマ）
 
-くれぐれも自己責任でご利用ください。
+自己責任でご利用ください。
+
+Docker,Vagrant環境上では、そのままで動作しません。（今後の課題）
 
 ## 概要
 
@@ -130,6 +132,7 @@ redmine_default_theme: redmine_flat
 
 ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
 
+---
 
 ## ライセンス
 

@@ -71,27 +71,6 @@ yum install -y ansible git
 git clone -b 3.4-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
-### Redmine admin 初期パスワードの変更
-
-admin初期パスワードを変更する場合は、下記箇所を変更ください。
-
-group_vars/redmine-servers
-
-redmine_admin_passwd: unofficial-cracking
-
-### Redmine admin 初期テーマの変更
-
-初期設定されるテーマを変更する場合は、下記箇所を変更ください。
-
-インストールされるテーマの一覧は、Redmineインストール下の/public/themes/を参照ください。
-
-group_vars/redmine-servers
-
-redmine_default_theme: redmine_flat
-
-### mariadbに設定するパスワードの変更
-
-ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
 
 ### playbook実行
 
@@ -114,6 +93,31 @@ ansible-playbook -i hosts site.yml
 webブラウザで `http://サーバIPアドレス/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
 
 初期パスワードは admin/ unofficial-cracking です。（標準から変更）
+
+## 初期設定の変更
+
+### Redmine admin 初期パスワードの変更
+
+admin初期パスワードを変更する場合は、下記箇所を変更ください。
+
+group_vars/redmine-servers
+
+redmine_admin_passwd: unofficial-cracking
+
+### Redmine admin 初期テーマの変更
+
+初期設定されるテーマを変更する場合は、下記箇所を変更ください。
+
+インストールされるテーマの一覧は、Redmineインストール下の/public/themes/を参照ください。
+
+group_vars/redmine-servers
+
+redmine_default_theme: redmine_flat
+
+### mariadbに設定するパスワードの変更
+
+ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
+
 
 ## ライセンス
 

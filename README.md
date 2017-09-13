@@ -1,5 +1,8 @@
 # redmine-centos-ansible
 
+# 構築高速化用作業ブランチ(Redmine3.4)
+
+#15
 
 最小構成でインストールしたCentOSにRedmineを自動インストールするためのAnsibleプレイブックです。
 

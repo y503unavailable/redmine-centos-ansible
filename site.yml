@@ -9,8 +9,8 @@
     - redmine-plugins
   post_tasks:
     - name: 完了
-      debug: msg='インストールが完了しました。 http://{{ ansible_default_ipv4.address }}/redmine/ にアクセスしてください。'
-      debug: msg='adminの初期パスワードは {{ redmine_admin_passwd }} です。'
+    - debug: msg="Redmine installation completed. Access http{{':'}}//{{ ansible_default_ipv4.address }}/redmine/ "
+    - debug: msg="admin initial password= {{ redmine_admin_passwd }} "
 
 - name: fess サーバ構築
   hosts: fess-servers

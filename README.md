@@ -1,6 +1,6 @@
 # redmine-centos-ansible
 
-# 構築高速化用作業ブランチ(Redmine3.4)
+# 構築時間短縮作業用ブランチ(Redmine3.4)
 
 #15
 

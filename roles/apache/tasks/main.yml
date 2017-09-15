@@ -5,7 +5,8 @@
 
 - name: Passengerがインストールされているか確認
   command:
-    test -f /usr/local/bin/passenger-install-apache2-module
+    test -f /usr/local/bin/passenger-install-apache2-module -o \
+         -f /opt/rh/rh-ruby24/root/usr/local/bin/passenger-install-apache2-module
   register:
     result
   failed_when: result.rc not in [0, 1]

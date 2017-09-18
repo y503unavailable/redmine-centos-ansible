@@ -38,11 +38,20 @@
     passenger_snippet_vars
   changed_when: false
 
+- name: redmine.confが作成済みか確認
+  command:
+    test -f /etc/httpd/conf.d/redmine.conf
+  register:
+    conf_exist
+  failed_when: conf_exist.rc not in [0, 1]
+  changed_when: false
+
 - name: redmine.confの作成
   become: yes
   template:
     src=redmine.conf.j2
     dest=/etc/httpd/conf.d/redmine.conf
+  when: conf_exist.rc == 1
 
 - name: Redmineに /redmine でアクセスするためのシンボリックリンク作成
   become: yes

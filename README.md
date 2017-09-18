@@ -57,7 +57,7 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 
 そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。初期パスワードは必要に応じ変更ください。
 
-admin初期パスワード  unofficial-cracking 
+admin初期パスワード  unofficial-cracking
 
 ## システム構成
 
@@ -159,8 +159,9 @@ $ docker build -t redmine-centos-ansible docker
 ```
 $ docker run --privileged --name redmine-centos-ansible -d -p 8080:80 redmine-centos-ansible /sbin/init
 $ docker exec -ti redmine-centos-ansible /bin/bash
-＜コンテナに入ると、リポジトリをチェックアウトした状態のフォルダがカレントになっています。＞
-＜ここで上記に従い、パスワードの変更などを行ってください。＞
+# cd /tmp
+# git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+$ cd redmine-centos-ansible
 # ansible-playbook -i hosts site.yml
 ```
 
@@ -185,7 +186,7 @@ Docker対応は  Tatsuya Saito <twopackas@gmail.com> さんによります。
 
 ## 本プレイブックについて
 
-原作 
+原作
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
 https://github.com/farend/redmine-centos-ansible
 

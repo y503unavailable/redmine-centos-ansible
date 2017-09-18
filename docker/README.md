@@ -29,11 +29,15 @@ $ docker build -t redmine-centos-ansible docker
 
 ### Usage
 
+1. Run docker image.
 ```
 $ docker run --privileged --name redmine-centos-ansible -d -p 8080:80 twopackas/redmine-centos-ansible /sbin/init
 $ docker exec -ti redmine-centos-ansible /bin/bash
+```
+2. Clone this repository.
+3. Run playbook in cloned folder.
+```
 # ansible-playbook -i hosts site.yml
 ```
-
 
 After that, access to http://your-server:8080/redmine

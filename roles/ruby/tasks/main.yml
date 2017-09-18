@@ -1,6 +1,6 @@
 - name: Rubyがインストールされているか確認
   command:
-    test -f {{ ruby_file_name }}
+    test -f {{ ruby_file_name }} -o -f {{ rh_ruby24_file_name }}
   register:
     ruby_test_vars
   failed_when: ruby_test_vars.rc not in [0, 1]

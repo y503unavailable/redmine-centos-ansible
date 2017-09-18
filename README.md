@@ -13,7 +13,7 @@ Redmine標準外の変更取込、backport、admin初期パスワードの変更
 
 自己責任でご利用ください。
 
-Dockerの対応は、現時点ではExperimentalとします。（まだ十分な動作確認が取れていないため）
+Docker上で利用する場合は、本手順書後半の手順を参照ください。
 
 Vagrant環境上では、そのままで動作しません。（今後の課題）
 
@@ -138,6 +138,13 @@ redmine_default_theme: redmine_flat
 
 ### Dockerを使用したPlaybookの実行
 
+CentOSの場合、下記手順でdockerの最新版をインストールしてください、（CE 17以降）
+
+CentOSのパッケージから導入すると、旧バージョンがインストールされ、正常に動作しない場合があります。
+```
+curl -sSL https://get.docker.com/ | sh
+```
+
 下記のコマンドでPlaybookを実行できるDockerコンテナのビルドができます。
 ```
 $ git clone https://github.com/y503unavailable/redmine-centos-ansible.git
@@ -156,6 +163,8 @@ $ docker exec -ti redmine-centos-ansible /bin/bash
 
 Webブラウザで `http://サーバIPアドレス:8080/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
 
+---
+
 ## ライセンス
 
 MIT License
@@ -168,6 +177,8 @@ y503unavailable （Redmine.Tokyoスタッフ）
 連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable) 、  [Twitter y503unavailable](https://twitter.com/y503unavailable)
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
+
+Docker対応
 
 ## 本プレイブックについて
 

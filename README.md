@@ -138,11 +138,14 @@ redmine_default_theme: redmine_flat
 
 ### Dockerを使用したPlaybookの実行
 
-CentOSの場合、下記手順でdockerの最新版をインストールしてください、（CE 17以降）
+CentOSの場合、下記手順でdockerの最新版をインストールし、起動してください、（CE 17以降）
 
 CentOSのパッケージから導入すると、旧バージョンがインストールされ、正常に動作しない場合があります。
 ```
 curl -sSL https://get.docker.com/ | sh
+
+systemctl enable docker
+systemctl start  docker
 ```
 
 下記のコマンドでPlaybookを実行できるDockerコンテナのビルドができます。

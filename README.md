@@ -72,6 +72,11 @@ admin初期パスワード  unofficial-cracking
 
 インストール直後の CentOS 7 に root でログインし以下の操作を行ってください。
 
+### パッケージの更新
+
+```
+yum -y update
+```
 
 ### Ansibleとgitのインストール
 
@@ -136,7 +141,7 @@ redmine_default_theme: redmine_flat
 
 ---
 
-### Dockerを使用したPlaybookの実行
+## Dockerを使用したPlaybookの実行
 
 CentOSの場合、下記手順でdockerの最新版をインストールし、起動してください、（CE 17以降）
 

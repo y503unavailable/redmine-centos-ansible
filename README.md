@@ -91,6 +91,8 @@ yum install -y ansible git
 git clone -b 3.4-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
+初期設定を変更する場合は、この時点で行ってください。
+
 ### playbook実行
 
 下記コマンドを実行してください。Redmineの自動インストールが開始されます。
@@ -143,7 +145,9 @@ redmine_default_theme: redmine_flat
 
 ## Dockerを使用したPlaybookの実行
 
-CentOSの場合、下記手順でdockerの最新版をインストールし、起動してください、（CE 17以降）
+### Docker最新版のインストール
+
+CentOSの場合、下記手順でdockerの最新版をインストールし、起動してください、（Docker CE 17以降）
 
 CentOSのパッケージから導入すると、旧バージョンがインストールされ、正常に動作しない場合があります。
 ```
@@ -153,12 +157,16 @@ systemctl enable docker
 systemctl start  docker
 ```
 
+### Dockerコンテナのビルド
+
 下記のコマンドでPlaybookを実行できるDockerコンテナのビルドができます。
 ```
 $ git clone https://github.com/y503unavailable/redmine-centos-ansible.git
 $ cd redmine-centos-ansible
 $ docker build -t redmine-centos-ansible docker
 ```
+
+### Dockerコンテナの起動とPlaybook実行
 
 下記のコマンドでビルドしたDockerコンテナでPlaybookを実行できます。
 ```

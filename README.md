@@ -178,7 +178,7 @@ y503unavailable （Redmine.Tokyoスタッフ）
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 
-Docker対応
+Docker対応は  Tatsuya Saito <twopackas@gmail.com> によります。
 
 ## 本プレイブックについて
 

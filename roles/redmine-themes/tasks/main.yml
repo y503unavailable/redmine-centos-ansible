@@ -19,7 +19,7 @@
 - name: theme_purplemine2 theme download
   become: yes
   git:
-    repo=https://github.com/taqueci/PurpleMine2.git
+    repo={{ redmine_theme_purplemine2_repo }}
     dest={{ redmine_dir }}/public/themes/PurpleMine2
 
 - name: redmine_theme_minimalflat2_download

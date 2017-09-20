@@ -189,9 +189,12 @@ $ docker build -t redmine-centos-ansible docker
 ```
 $ docker run --privileged --name redmine-centos-ansible -d -p 8080:80 redmine-centos-ansible /sbin/init
 $ docker exec -ti redmine-centos-ansible /bin/bash
+```
+以下はDockerコンテナ内操作
+```
 # cd /tmp
 # git clone https://github.com/y503unavailable/redmine-centos-ansible.git
-$ cd redmine-centos-ansible
+# cd redmine-centos-ansible
 # ansible-playbook -i hosts site.yml
 ```
 

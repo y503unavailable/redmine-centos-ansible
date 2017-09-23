@@ -16,7 +16,9 @@ Redmine標準外の変更取込、backport、admin初期パスワードの変更
 
 自己責任でご利用ください。
 
-Docker,Vagrant環境上では、そのままで動作しません。（今後の課題）
+Docker上で利用する場合は、本手順書後半の手順を参照ください。
+
+Vagrant環境上では、そのままで動作しません。（今後の課題）
 
 ## 概要
 
@@ -58,7 +60,7 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 
 そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。初期パスワードは必要に応じ変更ください。
 
-admin初期パスワード  unofficial-cracking 
+admin初期パスワード  unofficial-cracking
 
 ## システム構成
 
@@ -73,6 +75,11 @@ admin初期パスワード  unofficial-cracking
 
 インストール直後の CentOS 7 に root でログインし以下の操作を行ってください。
 
+### パッケージの更新
+
+```
+yum -y update
+```
 
 ### Ansibleとgitのインストール
 
@@ -86,6 +93,8 @@ yum install -y ansible git
 ```
 git clone -b 3.4-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
+
+初期設定を変更する場合は、この時点で行ってください。
 
 ### playbook実行
 
@@ -115,25 +124,84 @@ webブラウザで `http://サーバIPアドレス/redmine` にアクセスし�
 
 ### Redmine admin 初期パスワードの変更
 
-admin初期パスワードを変更する場合は、下記箇所を変更ください。
+admin初期パスワードを変更する場合は、下記箇所を変更してから実行ください。
 
 group_vars/redmine-servers
 
+```
 redmine_admin_passwd: unofficial-cracking
+```
 
 ### Redmine 初期テーマの変更
 
-初期設定されるテーマを変更する場合は、下記箇所を変更ください。
+初期設定されるテーマを変更する場合は、下記箇所を変更してから実行ください。
 
 インストールされるテーマの一覧は、Redmineインストール下の/public/themes/を参照ください。
 
 group_vars/redmine-servers
 
+```
 redmine_default_theme: redmine_flat
+```
+
+### Redmineのオリジナルのソースコードで利用したい場合
+
+オリジナルのソースコードで利用したい場合は、下記箇所を変更してから実行ください。
+
+group_vars/redmine-servers
+
+変更後
+
+```
+redmine_git_url: https://github.com/redmine/redmine.git
+redmine_git_branch: 3.4-stable
+```
 
 ### mariadbに設定するパスワードの変更
 
 ダウンロードしたプレイブック内のファイル `group_vars/redmine-servers` をエディタで開き、 `db_passwd_redmine` と、`db_passwd_root` を適切な内容に変更してください。これはmariadbのRedmine用ユーザー redmine に設定されるパスワードです。
+
+---
+
+## Dockerを使用したPlaybookの実行
+
+### Docker最新版のインストール
+
+CentOSの場合、下記手順でdockerの最新版をインストールし、起動してください、（Docker CE 17以降）
+
+CentOSのパッケージから導入すると、旧バージョンがインストールされ、正常に動作しない場合があります。
+```
+curl -sSL https://get.docker.com/ | sh
+
+systemctl enable docker
+systemctl start  docker
+```
+
+### Dockerコンテナのビルド
+
+下記のコマンドでPlaybookを実行できるDockerコンテナのビルドができます。
+```
+$ git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+$ cd redmine-centos-ansible
+$ docker build -t redmine-centos-ansible docker
+```
+
+### Dockerコンテナの起動とPlaybook実行
+
+下記のコマンドでビルドしたDockerコンテナでPlaybookを実行できます。
+```
+$ docker run --privileged --name redmine-centos-ansible -d -p 8080:80 redmine-centos-ansible /sbin/init
+$ docker exec -ti redmine-centos-ansible /bin/bash
+```
+以下はDockerコンテナ内操作
+```
+# cd /tmp
+# git clone https://github.com/y503unavailable/redmine-centos-ansible.git
+# cd redmine-centos-ansible
+# ansible-playbook -i hosts site.yml
+```
+
+Webブラウザで `http://サーバIPアドレス:8080/redmine` にアクセスしてください。Redmineの画面が表示されるはずです。
 
 ---
 
@@ -150,9 +218,11 @@ y503unavailable （Redmine.Tokyoスタッフ）
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 
+Docker対応は  Tatsuya Saito <twopackas@gmail.com> さんによります。
+
 ## 本プレイブックについて
 
-原作 
+原作
 [ファーエンドテクノロジー株式会社](http://www.farend.co.jp/)
 https://github.com/farend/redmine-centos-ansible
 

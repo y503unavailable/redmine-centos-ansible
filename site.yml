@@ -11,7 +11,11 @@
   post_tasks:
     - debug: msg="Redmine installation completed. Access http{{':'}}//{{ ansible_default_ipv4.address }}/redmine/ "
     - debug: msg="admin initial password= {{ redmine_admin_passwd }} "
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> origin/3.4-unofficialcooking
 - name: fess サーバ構築
   hosts: fess-servers
   roles:

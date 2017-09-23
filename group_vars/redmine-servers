@@ -31,7 +31,12 @@ ruby_archive_ext: tar.bz2
 ruby_archive_name: "{{ ruby_archive_version }}.{{ ruby_archive_ext }}"
 
 ruby_file_name: /usr/local/bin/ruby
+rh_ruby24_file_name: /opt/rh/rh-ruby24/root/usr/bin/ruby
 work_dir: /tmp/redmine-setup
+
+# purplemine2 repository select
+redmine_theme_purplemine2_repo:  https://github.com/taqueci/PurpleMine2.git
+#redmine_theme_purplemine2_repo:  https://github.com/mrliptontea/PurpleMine2.git
 
 # theme初期値指定
 redmine_default_theme: redmine_flat

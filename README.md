@@ -85,7 +85,15 @@ yum -y update
 
 ```
 yum install -y epel-release
-yum install -y ansible git
+yum install -y ansible
+```
+
+```
+yum -y install centos-release-scl
+
+yum -y install rh-git29 && source scl_source enable $_ && \
+echo -e '#!/bin/bash\nsource scl_source enable rh-git29' > /etc/profile.d/rh-git29.sh
+ln -s /opt/rh/rh-git29/root/usr/bin/* /usr/local/bin/
 ```
 
 ### playbookのダウンロード(3.4-unofficialcookingブランチ）
@@ -218,7 +226,9 @@ y503unavailable （Redmine.Tokyoスタッフ）
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 
-Docker対応は  Tatsuya Saito <twopackas@gmail.com> さんによります。
+Docker対応は  Tatsuya Saito <twopackas@gmail.com> 氏によります。
+
+gitの2.9対応は、bezeklik氏の記事を参照しました。
 
 ## 本プレイブックについて
 

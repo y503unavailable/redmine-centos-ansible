@@ -1,0 +1,7 @@
+- name: redmine_mermaid_macro
+  become: yes
+  git:
+    repo=https://github.com/taikii/redmine_mermaid_macro
+    dest={{ redmine_dir }}/plugins/redmine_mermaid_macro
+    version=master
+    

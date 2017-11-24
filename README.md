@@ -37,7 +37,7 @@ https://redmine.tokyo/projects/unofficialcooking
 
 ## 同時インストールするプラグイン
 
-full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage  (2017/9/12現在)
+full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage , theme_changer,mermaid_macro (2017/11/23現在)
 
 詳細は下記参照ください。
 

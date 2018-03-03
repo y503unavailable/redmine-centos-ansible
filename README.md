@@ -1,7 +1,7 @@
 # redmine-centos-ansible
 
 
-最小構成でインストールしたCentOSにRedmineを自動インストールするためのAnsibleプレイブックです。
+最小構成でインストールしたCentOSにRedmine/Redmicaを自動インストールするためのAnsibleプレイブックです。
 
 コマンド数個をコピペ実行し、あとはしばらく放置プレイすればインストールが完了します。
 
@@ -65,6 +65,20 @@ admin初期パスワード  unofficial-cracking
 * CentOS 7
 * mariadb
 * Apache
+
+## Redmicaへの対応
+
+本プレイブックは、Redmine及び、派生版のRedmicaに対応します。
+
+Redmica  https://dev.redmica.net/projects/redmica 
+
+https://github.com/redmica/redmica
+
+### Redmica利用時の注意
+
+Redmica標準のデータベース名はredmica ですが、本インストールでは、Redmine標準のredmine になります。
+
+Redmicaでは、インストール時に作成されるadmin の名前が、Redmine admin から Jane admin に変更されています、（config/database.yml参照）
 
 ---
 

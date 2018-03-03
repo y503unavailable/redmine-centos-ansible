@@ -141,17 +141,34 @@ group_vars/redmine-servers
 redmine_default_theme: redmine_flat
 ```
 
-### Redmineのオリジナルのソースコードで利用したい場合
+### Redmineオリジナル/Redmicaで利用したい場合
 
-オリジナルのソースコードで利用したい場合は、下記箇所を変更してから実行ください。
+下記箇所を変更してから実行ください。（2018/3現在）
 
 group_vars/redmine-servers
 
-変更後
+#### Redmine-本家gitミラー
 
 ```
 redmine_git_url: https://github.com/redmine/redmine.git
 redmine_git_branch: 3.4-stable
+```
+
+#### Redmica-本家
+
+```
+redmine_git_url: https://github.com/redmica/redmica.git
+redmine_git_branch: 3.4-stable
+```
+
+#### Redmica-UnofficialCookingフォーク
+
+```
+redmine_git_url: https://github.com/y503unavailable/redmica.git
+
+redmine_git_branch: 3.4-stable
+または
+redmine_git_branch: 3.4-unofficialcooking
 ```
 
 ### mariadbに設定するパスワードの変更

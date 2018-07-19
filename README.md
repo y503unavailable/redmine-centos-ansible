@@ -27,7 +27,11 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 ## Redmine標準からの変更内容
 
-標準からの変更内容は下記参照ください。
+カテゴリのサブプロジェクト継承機能を追加しています。（標準のバージョンと同じ）
+
+https://github.com/y503unavailable/redmine/issues/14
+
+Redmine標準からの変更内容は下記参照ください。
 
 取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
 

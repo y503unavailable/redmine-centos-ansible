@@ -84,6 +84,25 @@ Redmica標準のデータベース名はredmica ですが、本インストー�
 
 Redmicaでは、インストール時に作成されるadmin の名前が、Redmine admin から Jane admin に変更されています、（config/database.yml参照）
 
+
+## AWS上での追加設定
+
+AWS(EC2/Lightsail)上で利用する場合は、本Playbookの実行前に下記操作を行ってください。
+
+### スーパーユーザに移行しておく（rootにパスワードが設定無いため）
+
+下記実行（またはパスワード設定）
+```
+$ sudo su -
+```
+
+### firewalldをインストールする
+
+```
+# yum install firewalld
+# systemctl start firewalld
+```
+
 ---
 
 ## Redmineのインストール手順

@@ -15,6 +15,15 @@
 - include: redmine_wysiwyg_editor.yml
 - include: redmine_tags.yml
 
+- name: bundle install
+  become: yes
+  command:
+    bundle install
+    chdir={{ redmine_dir }}
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+    RAILS_ENV: production
+
 - name: db migration
   become: yes
   command:

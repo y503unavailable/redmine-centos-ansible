@@ -99,8 +99,7 @@ $ sudo su -
 ### firewalldをインストールする
 
 ```
-# yum install firewalld
-# systemctl start firewalld
+# yum install -y firewalld
 ```
 
 ---

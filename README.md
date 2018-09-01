@@ -101,6 +101,17 @@ $ sudo su -
 ```
 # yum install -y firewalld
 ```
+### swap領域を作成する(メモリ1GB以下の場合）
+
+passengerのビルド中、メモリ不足でインストール失敗する場合があるため、swap領域を追加する。
+https://mseeeen.msen.jp/redmine-amazon-linux-ansible/
+
+```
+dd if=/dev/zero of=/swap bs=1M count=1024
+chmod 600 /swap
+mkswap /swap
+swapon /swap
+```
 
 ---
 

@@ -1,0 +1,7 @@
+- name: redmine_wysiwyg_editor
+  become: yes
+  git:
+    repo=https://github.com/taqueci/redmine_wysiwyg_editor.git
+    dest={{ redmine_dir }}/plugins/redmine_wysiwyg_editor
+    version=master
+    

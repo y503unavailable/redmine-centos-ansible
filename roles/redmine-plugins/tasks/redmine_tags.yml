@@ -1,0 +1,7 @@
+- name: redmine_tags
+  become: yes
+  git:
+    repo=https://github.com/ixti/redmine_tags.git
+    dest={{ redmine_dir }}/plugins/redmine_tags
+    version=master
+    

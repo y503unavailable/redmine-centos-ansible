@@ -12,6 +12,8 @@
 - include: redmine_full_text_search.yml
 - include: redmine_theme_changer.yml
 - include: redmine_mermaid_macro.yml
+- include: redmine_wysiwyg_editor.yml
+- include: redmine_tags.yml
 
 - name: db migration
   become: yes

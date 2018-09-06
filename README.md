@@ -113,6 +113,23 @@ mkswap /swap
 swapon /swap
 ```
 
+## Redmine_knowledgebase Plugin利用時の注意点
+
+本Playbookでは、Redmine_Tags Pluginを初期導入しています。
+
+Redmine_Tags Pluginは、Redmine_knowledgebase Pluginと同居できませんので、下記手順で対応してください。
+
+### Redmine_knowledgebase Pluginのインストール前に、Redmine_Tags Pluginをアンインストールする。
+
+
+```
+rake redmine:plugins:migrate NAME=redmine_tags VERSION=0 FORCE_REDMINE_TAGS_TABLES_REMOVAL=yes
+```
+
+### 本PlayBook実行前に、Redmine_Tagsをインストール対象から外す。
+
+roles/redmine-plugins/tasks/main.yml から、Redmine_Tagsの行を削除する。
+
 ---
 
 ## Redmineのインストール手順

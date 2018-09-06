@@ -118,9 +118,9 @@ swapon /swap
 本Playbookでは、Redmine_Tags Pluginを初期導入しています。
 
 Redmine_Tags Pluginは、Redmine_knowledgebase Pluginと同居できませんので、下記手順で対応してください。
+https://github.com/alexbevi/redmine_knowledgebase/issues/320
 
 ### Redmine_knowledgebase Pluginのインストール前に、Redmine_Tags Pluginをアンインストールする。
-
 
 ```
 rake redmine:plugins:migrate NAME=redmine_tags VERSION=0 FORCE_REDMINE_TAGS_TABLES_REMOVAL=yes

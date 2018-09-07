@@ -120,6 +120,9 @@ swapon /swap
 Redmine_Tags Pluginは、Redmine_knowledgebase Pluginと同居できませんので、下記手順で対応してください。
 https://github.com/alexbevi/redmine_knowledgebase/issues/320
 
+Redmine_knowledgebase Plugin以外の、'redmine_acts_as_taggable_on'を使用しているPluginも、同様に対応する必要があります。
+http://www.redmine.org/issues/1448#note-124
+
 ### Redmine_knowledgebase Pluginのインストール前に、Redmine_Tags Pluginをアンインストールする。
 
 ```

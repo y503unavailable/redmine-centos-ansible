@@ -1,6 +1,5 @@
 # redmine-centos-ansible
 
-
 最小構成でインストールしたCentOSにRedmine/Redmicaを自動インストールするためのAnsibleプレイブックです。
 
 コマンド数個をコピペ実行し、あとはしばらく放置プレイすればインストールが完了します。
@@ -16,6 +15,13 @@ Redmine標準外の変更取込、backport、admin初期パスワードの変更
 Docker上で利用する場合は、本手順書後半の手順を参照ください。
 
 Vagrant環境上では、そのままで動作しません。（今後の課題）
+
+## システム構成
+
+* Redmine 3.4
+* CentOS 7
+* mariadb
+* Apache
 
 ## 概要
 
@@ -63,13 +69,6 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 
 admin初期パスワード  unofficial-cracking
 
-## システム構成
-
-* Redmine 3.4
-* CentOS 7
-* mariadb
-* Apache
-
 ## Redmicaへの対応
 
 本プレイブックは、Redmine及び、派生版のRedmicaに対応します。
@@ -84,6 +83,7 @@ Redmica標準のデータベース名はredmica ですが、本インストー�
 
 Redmicaでは、インストール時に作成されるadmin の名前が、Redmine admin から Jane admin に変更されています、（config/database.yml参照）
 
+---
 
 ## AWS上での追加設定
 
@@ -112,6 +112,8 @@ chmod 600 /swap
 mkswap /swap
 swapon /swap
 ```
+
+---
 
 ## Redmine_knowledgebase Plugin利用時の注意点
 

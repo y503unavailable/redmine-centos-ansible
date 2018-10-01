@@ -16,6 +16,12 @@
     repo=https://github.com/makotokw/redmine-theme-gitmike.git
     dest={{ redmine_dir }}/public/themes/gitmike
 
+- name: flatly_light theme download
+  become: yes
+  git:
+    repo=https://github.com/Nitrino/flatly_light_redmine.git
+    dest={{ redmine_dir }}/public/themes/flatly_light_redmine
+
 - name: theme_purplemine2 theme download
   become: yes
   git:

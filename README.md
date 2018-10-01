@@ -55,7 +55,7 @@ https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcoo
 
 ## 同時インストールするテーマ
 
-farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2  (2017/9/12現在)
+farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light  (2018/10/1現在)
 
 詳細は下記参照ください。
 

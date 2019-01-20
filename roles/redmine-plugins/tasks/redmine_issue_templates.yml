@@ -3,5 +3,4 @@
   git:
     repo=https://github.com/akiko-pusu/redmine_issue_templates.git
     dest={{ redmine_dir }}/plugins/redmine_issue_templates
-    version=master
-    
+    version=v0.2.x-support-Redmine3 

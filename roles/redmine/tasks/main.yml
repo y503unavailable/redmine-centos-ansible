@@ -77,7 +77,7 @@
     RAILS_ENV: production
     REDMINE_LANG: ja
   when:
-    result_database_yml|changed
+    result_database_yml is changed
 
 - name: make redmine_admin_passchg.rb
   become: yes
@@ -101,7 +101,7 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
     RAILS_ENV: production
   when:
-    result_database_yml|changed
+    result_database_yml is changed
 
 - name: ユーザー名の表示形式を「姓 名」に変更
   become: yes
@@ -112,7 +112,7 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
     RAILS_ENV: production
   when:
-    result_database_yml|changed
+    result_database_yml is changed
 
 - name: 添付ファイルとリポジトリのエンコーディングを設定
   become: yes
@@ -123,7 +123,7 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
     RAILS_ENV: production
   when:
-    result_database_yml|changed
+    result_database_yml is changed
 
 - name: 添付ファイルのサムネイルを表示
   become: yes
@@ -134,4 +134,4 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
     RAILS_ENV: production
   when:
-    result_database_yml|changed
+    result_database_yml is changed

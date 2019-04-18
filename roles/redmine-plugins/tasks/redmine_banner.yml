@@ -3,5 +3,4 @@
   git:
     repo=https://github.com/akiko-pusu/redmine_banner
     dest={{ redmine_dir }}/plugins/redmine_banner
-    version=master
-    
+    version=v0.1.x-support-Redmine3

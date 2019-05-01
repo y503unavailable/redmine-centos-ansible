@@ -8,7 +8,7 @@
 
 本プレイブックは、Redmine3.4対応 UnofficialCooking版(闇鍋版)です。
 
-Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。(2017/9/10時点では本家+プラグイン+テーマ）
+Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
 
 自己責任でご利用ください。
 

@@ -6,7 +6,7 @@
 
 ## 注意事項
 
-本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。(2019/5現在,作成中）
+本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。
 
 Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
 
@@ -53,11 +53,11 @@ https://redmine.tokyo/projects/unofficialcooking
 
 詳細は下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks/main.yml
+https://github.com/y503unavailable/redmine-centos-ansible/tree/4.0-unofficialcooking/roles/redmine-plugins/tasks/main.yml
 
 ## 同時インストールするテーマ
 
-~~farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light  (2018/10/1現在)~~
+farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light
 
 詳細は下記参照ください。
 
@@ -142,7 +142,7 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード(3.4-unofficialcookingブランチ）
+### playbookのダウンロード(4.0-unofficialcookingブランチ）
 
 ```
 git clone -b 4.0-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
@@ -209,16 +209,6 @@ group_vars/redmine-servers
 ```
 redmine_git_url: https://github.com/redmine/redmine.git
 redmine_git_branch: 4.0-stable
-```
-
-#### Redmica-UnofficialCookingフォーク
-
-```
-redmine_git_url: https://github.com/y503unavailable/redmica.git
-
-redmine_git_branch: 4.0-stable
-または
-redmine_git_branch: 4.0-unofficialcooking
 ```
 
 ### mariadbに設定するパスワードの変更

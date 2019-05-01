@@ -3,4 +3,4 @@
   git:
     repo=https://github.com/haru/redmine_wiki_extensions
     dest={{ redmine_dir }}/plugins/redmine_wiki_extensions
-    version=0.8.2
+    version=master

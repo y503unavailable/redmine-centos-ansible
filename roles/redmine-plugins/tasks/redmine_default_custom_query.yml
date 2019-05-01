@@ -3,4 +3,5 @@
   git:
     repo=https://github.com/hidakatsuya/redmine_default_custom_query
     dest={{ redmine_dir }}/plugins/redmine_default_custom_query
-    version=
+    version=master
+    

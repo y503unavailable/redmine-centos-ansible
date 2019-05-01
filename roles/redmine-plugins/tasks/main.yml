@@ -1,5 +1,5 @@
 #- include: redmine_absolute_dates.yml
-- include: redmine_wiki_extensions.yml 
+#- include: redmine_wiki_extensions.yml 
 # 3.4 incompatible now - include: redmine_scm.yml
 - include: redmine_startpage.yml
 - include: redmine_issue_templates.yml

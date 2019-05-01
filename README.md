@@ -6,7 +6,7 @@
 
 ## 注意事項
 
-本プレイブックは、Redmine3.4対応 UnofficialCooking版(闇鍋版)です。
+本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。(2019/5現在,作成中）
 
 Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
 
@@ -18,7 +18,7 @@ Vagrant環境上では、そのままで動作しません。（今後の課題�
 
 ## システム構成
 
-* Redmine 3.4
+* Redmine 4.0
 * CentOS 7
 * mariadb
 * Apache
@@ -33,7 +33,9 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 ## Redmine標準からの変更内容
 
-カテゴリのサブプロジェクト継承機能を追加しています。（標準のバージョンと同じ）
+### 下記変更はまだ実施していません。(2019/5/1)
+
+~~カテゴリのサブプロジェクト継承機能を追加しています。（標準のバージョンと同じ）~~
 
 https://github.com/y503unavailable/redmine/issues/14
 
@@ -47,7 +49,7 @@ https://redmine.tokyo/projects/unofficialcooking
 
 ## 同時インストールするプラグイン
 
-full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage , theme_changer,mermaid_macro,redmine_tags,redmine_wysiwyg_editor (2018/9/1現在)
+~~full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage , theme_changer,mermaid_macro,redmine_tags,redmine_wysiwyg_editor (2018/9/1現在)~~
 
 詳細は下記参照ください。
 
@@ -55,11 +57,11 @@ https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcoo
 
 ## 同時インストールするテーマ
 
-farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light  (2018/10/1現在)
+~~farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light  (2018/10/1現在)~~
 
 詳細は下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/3.4-unofficialcooking/roles/redmine-plugins/tasks/main.yml
+https://github.com/y503unavailable/redmine-centos-ansible/tree/4.0-unofficialcooking/roles/redmine-plugins/tasks/main.yml
 
 ## admin初期パスワードの変更
 
@@ -68,20 +70,6 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 そのため、情報セキュリテイ対策として、admin初期パスワードを変更しました。初期パスワードは必要に応じ変更ください。
 
 admin初期パスワード  unofficial-cracking
-
-## Redmicaへの対応
-
-本プレイブックは、Redmine及び、派生版のRedmicaに対応します。
-
-Redmica  https://dev.redmica.net/projects/redmica 
-
-https://github.com/redmica/redmica
-
-### Redmica利用時の注意
-
-Redmica標準のデータベース名はredmica ですが、本インストールでは、Redmine標準のredmine になります。
-
-Redmicaでは、インストール時に作成されるadmin の名前が、Redmine admin から Jane admin に変更されています、（config/database.yml参照）
 
 ---
 
@@ -117,7 +105,7 @@ swapon /swap
 
 ## Redmine_knowledgebase Plugin利用時の注意点
 
-本Playbookでは、Redmine_Tags Pluginを初期導入しています。
+~~本Playbookでは、Redmine_Tags Pluginを初期導入しています。~~
 
 Redmine_Tags Pluginは、Redmine_knowledgebase Pluginと同居できませんので、下記手順で対応してください。
 https://github.com/alexbevi/redmine_knowledgebase/issues/320
@@ -157,7 +145,7 @@ yum install -y ansible git
 ### playbookのダウンロード(3.4-unofficialcookingブランチ）
 
 ```
-git clone -b 3.4-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b 4.0-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 初期設定を変更する場合は、この時点で行ってください。
@@ -210,7 +198,7 @@ group_vars/redmine-servers
 redmine_default_theme: redmine_flat
 ```
 
-### Redmineオリジナル/Redmicaで利用したい場合
+### Redmineオリジナルで利用したい場合
 
 下記箇所を変更してから実行ください。（2018/3現在）
 
@@ -220,14 +208,7 @@ group_vars/redmine-servers
 
 ```
 redmine_git_url: https://github.com/redmine/redmine.git
-redmine_git_branch: 3.4-stable
-```
-
-#### Redmica-本家
-
-```
-redmine_git_url: https://github.com/redmica/redmica.git
-redmine_git_branch: 3.4-stable
+redmine_git_branch: 4.0-stable
 ```
 
 #### Redmica-UnofficialCookingフォーク
@@ -235,9 +216,9 @@ redmine_git_branch: 3.4-stable
 ```
 redmine_git_url: https://github.com/y503unavailable/redmica.git
 
-redmine_git_branch: 3.4-stable
+redmine_git_branch: 4.0-stable
 または
-redmine_git_branch: 3.4-unofficialcooking
+redmine_git_branch: 4.0-unofficialcooking
 ```
 
 ### mariadbに設定するパスワードの変更

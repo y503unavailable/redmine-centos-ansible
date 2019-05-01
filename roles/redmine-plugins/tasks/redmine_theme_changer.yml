@@ -3,4 +3,4 @@
   git:
     repo=https://github.com/haru/redmine_theme_changer
     dest={{ redmine_dir }}/plugins/redmine_theme_changer
-    version=0.3.1  
+    version=master

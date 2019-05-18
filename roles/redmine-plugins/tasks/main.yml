@@ -16,6 +16,7 @@
 - include: redmine_tags.yml
 - include: redmine_default_custom_query.yml
 - include: redmine_message_customize.yml
+- include: redmine_github.yml
 
   become: yes
 - name: bundle install

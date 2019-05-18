@@ -18,8 +18,8 @@
 - include: redmine_message_customize.yml
 - include: redmine_github.yml
 
-  become: yes
 - name: bundle install
+  become: yes
   command:
     bundle install
     chdir={{ redmine_dir }}

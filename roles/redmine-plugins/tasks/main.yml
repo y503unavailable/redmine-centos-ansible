@@ -18,6 +18,7 @@
 - include: redmine_message_customize.yml
 - include: redmine_github.yml
 - include: redmine_webhook.yml
+- include: clipboard_image_paste.yml
 
 - name: bundle install
   become: yes

@@ -1,0 +1,6 @@
+- name: redmine_webhook
+  become: yes
+  git:
+    repo=https://github.com/suer/redmine_webhook.git
+    dest={{ redmine_dir }}/plugins/redmine_webhook
+    version=0.0.4

@@ -1,0 +1,6 @@
+- name: clipboard_image_paste
+  become: yes
+  git:
+    repo=https://github.com/peclik/clipboard_image_paste.git
+    dest={{ redmine_dir }}/plugins/clipboard_image_paste
+    version=master

@@ -134,11 +134,16 @@ roles/redmine-plugins/tasks/main.yml から、Redmine_Tagsの行を削除する�
 yum -y update
 ```
 
-### Ansibleとgitのインストール
+### Ansible、git、python-redmineのインストール
 
 ```
 yum install -y epel-release
 yum install -y ansible git
+```
+
+```
+sudo yum install -y python-pip --enablerepo=epel
+pip install python-redmine
 ```
 
 ### playbookのダウンロード(3.4-unofficialcookingブランチ）

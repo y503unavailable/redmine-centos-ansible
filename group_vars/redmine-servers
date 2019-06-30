@@ -10,7 +10,7 @@ redmine_admin_passwd: unofficial-cracking
 # Redmineのチェックアウト元URL(本プレイブックではGit使用)
 # redmine_svn_url: http://svn.redmine.org/redmine/branches/3.3-stable
 redmine_git_url: https://github.com/y503unavailable/redmine.git
-redmine_git_branch: 4.0-stable
+redmine_git_branch: feature-category-trunk20190629 
 
 # Redmineのデプロイ先ディレクトリ
 redmine_dir: /var/lib/redmine

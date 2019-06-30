@@ -6,7 +6,11 @@
 
 ## 注意事項
 
-本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。
+~~本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。~~
+
+### 本プレイブックは、カテゴリPJ継承の4.X(trunk)用開発ブランチです。feature-category-trunk20190629 ###
+
+カテゴリのPJ継承機能は一応動作していますが、十分なテストは行っていません。自己責任でご利用ください。
 
 Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
 
@@ -33,9 +37,7 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 ## Redmine標準からの変更内容
 
-### 下記変更はまだ実施していません。(2019/5/1)
-
-~~カテゴリのサブプロジェクト継承機能を追加しています。（標準のバージョンと同じ）~~
+### カテゴリのサブプロジェクト継承機能を追加しました。（標準のバージョンと同じ 2019/06/30） ###
 
 https://github.com/y503unavailable/redmine/issues/14
 
@@ -142,10 +144,10 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード(4.0-unofficialcookingブランチ）
+### playbookのダウンロード(feature-category-trunk20190629ブランチ）
 
 ```
-git clone -b 4.0-unofficialcooking https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b feature-category-trunk20190629 https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 初期設定を変更する場合は、この時点で行ってください。

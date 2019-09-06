@@ -15,6 +15,7 @@
 #- include: redmine_wysiwyg_editor.yml
 #- include: redmine_tags.yml
 - include: redmine_default_custom_query.yml
+- include: redmine_message_customize.yml
 
 - name: bundle install
   become: yes

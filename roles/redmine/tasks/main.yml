@@ -88,7 +88,7 @@
 
 - name: change admin passwd
   become: yes
-  shell:   RAILS_ENV=production bundle exec rails console  < /tmp/redmine_admin_passchg.rb
+  shell:  /usr/local/bin/bundle exec rails console -e production < /tmp/redmine_admin_passchg.rb
   args:
     chdir: "{{ redmine_dir }}"
 

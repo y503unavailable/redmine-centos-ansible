@@ -57,7 +57,7 @@ https://github.com/y503unavailable/redmine-centos-ansible/tree/4.0-unofficialcoo
 
 ## 同時インストールするテーマ
 
-farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light
+farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light,kodomo,farend_bleuclair
 
 詳細は下記参照ください。
 
@@ -259,6 +259,14 @@ Webブラウザで `http://サーバIPアドレス:8080/redmine` にアクセス
 
 ---
 
+## 起動後の設定変更
+
+### kodomo テーマで利用したい場合
+
+起動後、kodomoテーマを選択し、 message_customizeプラグインで用語を変更してください。
+
+https://github.com/akiko-pusu/redmine_theme_kodomo
+
 ## ライセンス
 
 MIT License
@@ -266,7 +274,7 @@ MIT License
 
 ## 作者
 
-y503unavailable （Redmine.Tokyoスタッフ）
+y503unavailable （Redmine.Tokyoスタッフ unofficial redmine cooking 担当）
 
 連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable) 、  [Twitter y503unavailable](https://twitter.com/y503unavailable)
 

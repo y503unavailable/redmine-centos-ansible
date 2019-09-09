@@ -28,6 +28,18 @@
     repo={{ redmine_theme_purplemine2_repo }}
     dest={{ redmine_dir }}/public/themes/PurpleMine2
 
+- name: theme_kodomo
+  become: yes
+  git:
+    repo=https://github.com/akiko-pusu/redmine_theme_kodomo.git
+    dest={{ redmine_dir }}/public/themes/kodomo
+
+- name: farend_bleuclair
+  become: yes
+  git:
+    repo=https://github.com/farend/redmine_theme_farend_bleuclair.git
+    dest={{ redmine_dir }}/public/themes/bleuclair
+
 - name: redmine_theme_minimalflat2_download
   become: yes
   get_url:

@@ -1,5 +1,5 @@
 - name: redmine サーバ構築
-  hosts: redmine-servers
+  hosts: redmine_servers
   roles:
     - system
     - mariadb
@@ -13,7 +13,7 @@
     - debug: msg="admin initial password= {{ redmine_admin_passwd }} "
   
 - name: fess サーバ構築
-  hosts: fess-servers
+  hosts: fess_servers
   roles:
 #    - java
 #    - fess

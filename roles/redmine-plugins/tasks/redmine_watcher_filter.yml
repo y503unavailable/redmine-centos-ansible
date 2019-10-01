@@ -1,0 +1,7 @@
+- name: redmine_watcher_filter
+  become: yes
+  git:
+    repo=https://github.com/ayweak/redmine_watcher_filter
+    dest={{ redmine_dir }}/plugins/redmine_watcher_filter
+    version=master
+    

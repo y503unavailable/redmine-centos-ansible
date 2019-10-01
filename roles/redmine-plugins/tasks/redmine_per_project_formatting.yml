@@ -1,0 +1,6 @@
+- name: redmine_per_project_formatting
+  become: yes
+  git:
+    repo=https://github.com/a-ono/redmine_per_project_formatting
+    dest={{ redmine_dir }}/plugins/redmine_per_project_formatting
+    version=master

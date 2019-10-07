@@ -18,6 +18,7 @@
 - include: redmine_message_customize.yml
 - include: redmine_per_project_formatting.yml
 - include: redmine_watcher_filter.yml
+- include: redmine_silencer.yml
 
 - name: bundle install
   become: yes

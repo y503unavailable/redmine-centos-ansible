@@ -1,0 +1,6 @@
+- name: redmine_silencer
+  become: yes
+  git:
+    repo=https://github.com/paginagmbh/redmine_silencer.git
+    dest={{ redmine_dir }}/plugins/redmine_silencer
+    version=master

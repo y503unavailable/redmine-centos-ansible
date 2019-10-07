@@ -3,4 +3,4 @@
   git:
     repo=https://github.com/ishikawa999/redmine_message_customize.git
     dest={{ redmine_dir }}/plugins/redmine_message_customize
-    version=develop
+    version=master

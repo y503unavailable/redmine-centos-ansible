@@ -34,11 +34,17 @@
     repo=https://github.com/akiko-pusu/redmine_theme_kodomo.git
     dest={{ redmine_dir }}/public/themes/kodomo
 
+- name: farend_bleuclair_check
+  stat:
+    path: "{{ redmine_dir }}/public/themes/bleuclair"
+  register: bleuclair_chk_file
+
 - name: farend_bleuclair
   become: yes
   git:
     repo=https://github.com/farend/redmine_theme_farend_bleuclair.git
     dest={{ redmine_dir }}/public/themes/bleuclair
+  when: bleuclair_chk_file.stat.exists == false
 
 - name: redmine_theme_minimalflat2_download
   become: yes

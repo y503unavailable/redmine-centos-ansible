@@ -212,6 +212,19 @@ group_vars/redmine-servers
 redmine_git_url: https://github.com/redmine/redmine.git
 redmine_git_branch: 4.0-stable
 ```
+### Redmicaで利用したい場合
+
+下記箇所を変更してから実行ください。（2019/11現在）
+なお、Redmine4.1.XがRedmica 1.0-stable, 4.1.0リリース後のtrunk(4.2候補)がRedmica masterに相当するものと思われます。
+
+group_vars/redmine-servers
+
+#### Redmica
+
+```
+redmine_git_url: https://github.com/redmica/redmica.git
+redmine_git_branch: 1.0-stable
+```
 
 ### mariadbに設定するパスワードの変更
 

@@ -137,11 +137,12 @@ roles/redmine-plugins/tasks/main.yml から、Redmine_Tagsの行を削除する�
 yum -y update
 ```
 
-### Ansibleとgitのインストール
+### Ansibleとgitとghostscriptのインストール
 
 ```
 yum install -y epel-release
 yum install -y ansible git
+yum install -y ghostscript
 ```
 
 ### playbookのダウンロード(feature-category-trunk20190629ブランチ）

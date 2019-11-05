@@ -27,7 +27,7 @@ pg_hba_conf_path: /var/lib/pgsql/data/pg_hba.conf
 
 # ダウンロードするRubyのソースコード
 ruby_url_dir: https://cache.ruby-lang.org/pub/ruby/2.5
-ruby_archive_version: ruby-2.5.5
+ruby_archive_version: ruby-2.5.7
 ruby_archive_ext: tar.bz2
 ruby_archive_name: "{{ ruby_archive_version }}.{{ ruby_archive_ext }}"
 

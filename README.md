@@ -8,9 +8,9 @@
 
 ~~本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。~~
 
-### 本プレイブックは、カテゴリPJ継承の4.X(trunk)用開発ブランチです。feature-category-trunk20190629 ###
+### 本プレイブックは、Redmica-master（Redmine4.1リリース後のtrunk見込）ブランチ用です。redmica-master ###
 
-カテゴリのPJ継承機能は一応動作していますが、十分なテストは行っていません。自己責任でご利用ください。
+自己責任でご利用ください。
 
 Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
 
@@ -145,10 +145,10 @@ yum install -y ansible git
 yum install -y ghostscript
 ```
 
-### playbookのダウンロード(feature-category-trunk20190629ブランチ）
+### playbookのダウンロード(redmica-masterブランチ）
 
 ```
-git clone -b feature-category-trunk20190629 https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b redmica-master https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 初期設定を変更する場合は、この時点で行ってください。

@@ -8,7 +8,7 @@
 
 ~~本プレイブックは、Redmine4.0対応 UnofficialCooking版(闇鍋版)です。~~
 
-### 本プレイブックは、カテゴリPJ継承の4.X(trunk)用開発ブランチです。feature-category-trunk20190629 ###
+### 本プレイブックは、fts-mariadb10-utf8mb4用開発ブランチです。feature-fts-maria10-utf8mb4 ###
 
 カテゴリPJ継承の4.X(trunk)用開発ブランチから作成したブランチです。feature-category-trunk20190629
 

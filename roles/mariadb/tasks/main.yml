@@ -1,6 +1,22 @@
+- name: Fetch mariadb_repo_setup
+  uri:
+    url: https://downloads.mariadb.com/MariaDB/mariadb_repo_setup 
+    return_content: yes
+  register: get_mariadb_repo_setup 
+ 
+- name: mariadb_repo_setup
+  shell: "{{ get_mariadb_repo_setup.content }}"
+
 - name: MariaDBのインストール
   become: yes
-  yum: name='mariadb-server,mariadb-devel'
+  yum: name='MariaDB-compat-10.4.8-1.el7.centos.x86_64 , MariaDB-common-10.4.8-1.el7.centos.x86_64 , MariaDB-client-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-shared-10.4.8-1.el7.centos.x86_64'
+
+- name: groongaのインストール
+  become: yes
+  yum: name='https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm'
+
+- name: mariadb-10.4-mroonga
+  yum: name='mariadb-10.4-mroonga' enablerepo=epel
 
 - name: MySQL-pythonのインストール (Ansibleが使用)
   become: yes

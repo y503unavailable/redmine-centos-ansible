@@ -141,10 +141,10 @@ yum install -y epel-release
 yum install -y ansible git
 ```
 
-### playbookのダウンロード(feature-category-trunk20190629ブランチ）
+### playbookのダウンロード(feature-fts-maria10-utf8mb4ブランチ）
 
 ```
-git clone -b feature-category-trunk20190629 https://github.com/y503unavailable/redmine-centos-ansible.git
+git clone -b feature-fts-maria10-utf8mb4 https://github.com/y503unavailable/redmine-centos-ansible.git
 ```
 
 初期設定を変更する場合は、この時点で行ってください。

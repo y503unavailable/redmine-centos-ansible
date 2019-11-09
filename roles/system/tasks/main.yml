@@ -53,6 +53,11 @@
   yum:
     name='ImageMagick,ImageMagick-devel,ipa-pgothic-fonts'
 
+- name: ghostscriptのインストール
+  become: yes
+  yum:
+    name='ghostscript'
+
 - name: そのほかのツールのインストール
   become: yes
   yum:

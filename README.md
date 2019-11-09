@@ -10,22 +10,19 @@
 
 ### 本プレイブックは、カテゴリPJ継承の4.X(trunk)用開発ブランチです。feature-category-trunk20190629 ###
 
-カテゴリのPJ継承機能は一応動作していますが、十分なテストは行っていません。自己責任でご利用ください。
+カテゴリPJ継承の4.X(trunk)用開発ブランチから作成したブランチです。feature-category-trunk20190629
 
-Redmine標準外の変更取込、backport、admin初期パスワードの変更、Plugin,テーマの一括インストールを行います。
-
-自己責任でご利用ください。
-
-Docker上で利用する場合は、本手順書後半の手順を参照ください。
-
-Vagrant環境上では、そのままで動作しません。（今後の課題）
+試行中なので自己責任でご利用ください。（自己責任は他も同じ）
 
 ## システム構成
 
 * Redmine 4.0
 * CentOS 7
-* mariadb
+* mariadb-10
 * Apache
+
+* utf8-mb4対応
+* full-text-search plugin ,mroonga 取込
 
 ## 概要
 
@@ -294,7 +291,7 @@ MIT License
 
 y503unavailable （Redmine.Tokyoスタッフ unofficial redmine cooking 担当）
 
-連絡先   [Redmine マストドン](https://toot.redmine.jp/@y503unavailable) 、  [Twitter y503unavailable](https://twitter.com/y503unavailable)
+連絡先    [Twitter y503unavailable](https://twitter.com/y503unavailable)　、Discord、slack
 
 [Redmine.tokyo unofficial cooking](https://redmine.tokyo/projects/unofficialcooking/)   
 

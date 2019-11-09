@@ -9,7 +9,7 @@
 
 - name: MariaDBのインストール
   become: yes
-  yum: name='MariaDB-compat-10.4.8-1.el7.centos.x86_64 , MariaDB-common-10.4.8-1.el7.centos.x86_64 , MariaDB-client-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-shared-10.4.8-1.el7.centos.x86_64'
+  yum: name='MariaDB-compat-10.4.8-1.el7.centos.x86_64 , MariaDB-common-10.4.8-1.el7.centos.x86_64 , MariaDB-client-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-server-10.4.8-1.el7.centos.x86_64 , MariaDB-shared-10.4.8-1.el7.centos.x86_64,mariadb-devel'
 
 - name: groongaのインストール
   become: yes

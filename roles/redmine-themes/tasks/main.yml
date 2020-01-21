@@ -49,7 +49,7 @@
 - name: redmine_theme_minimalflat2_download
   become: yes
   get_url:
-    url: https://github.com/akabekobeko/redmine-theme-minimalflat2/releases/download/v1.5.0/minimalflat2-1.5.0.zip
+    url: https://github.com/akabekobeko/redmine-theme-minimalflat2/releases/download/v1.7.0/minimalflat2-1.7.0.zip
     dest: /tmp
 
 - name: redmine_theme_minimalflat2_dir
@@ -58,7 +58,7 @@
 
 - name: redmine_theme_minimalflat2_extract
   become: yes
-  unarchive: src=/tmp/minimalflat2-1.5.0.zip dest={{ redmine_dir }}/public/themes
+  unarchive: src=/tmp/minimalflat2-1.7.0.zip dest={{ redmine_dir }}/public/themes
 
 - name: default_theme
   become: yes

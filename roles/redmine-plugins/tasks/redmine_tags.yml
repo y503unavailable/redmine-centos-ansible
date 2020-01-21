@@ -3,4 +3,5 @@
   git:
     repo=https://github.com/ixti/redmine_tags.git
     dest={{ redmine_dir }}/plugins/redmine_tags
-    version=3.2.2
+    version=master
+    

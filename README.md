@@ -52,7 +52,7 @@ https://redmine.tokyo/projects/unofficialcooking
 
 詳細は下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/4.0-unofficialcooking/roles/redmine-plugins/tasks/main.yml
+https://github.com/y503unavailable/redmine-centos-ansible/tree/feature-fts-maria10-utf8mb4/roles/redmine-plugins/tasks/main.yml
 
 ## 同時インストールするテーマ
 
@@ -60,7 +60,7 @@ farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light,kodomo,f
 
 詳細は下記参照ください。
 
-https://github.com/y503unavailable/redmine-centos-ansible/tree/4.0-unofficialcooking/roles/redmine-plugins/tasks/main.yml
+https://github.com/y503unavailable/redmine-centos-ansible/tree/feature-fts-maria10-utf8mb4/roles/redmine-themes/tasks/main.yml
 
 ## admin初期パスワードの変更
 

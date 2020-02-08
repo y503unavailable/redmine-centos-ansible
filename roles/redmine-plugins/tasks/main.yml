@@ -19,6 +19,7 @@
 - include: redmine_per_project_formatting.yml
 - include: redmine_watcher_filter.yml
 - include: redmine_silencer.yml
+- include: redmine_issue_evm.yml
 
 - name: bundle install
   become: yes

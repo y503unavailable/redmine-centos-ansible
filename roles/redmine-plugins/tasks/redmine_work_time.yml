@@ -1,10 +1,6 @@
-- name: redmine_work_time_download
+- name: redmine_work_time
   become: yes
-  get_url:
-    url: https://bitbucket.org/tkusukawa/redmine_work_time/downloads/redmine_work_time-0.3.4.zip
-    dest: /tmp
-
-- name: redmine_work_times_extract
-  become: yes
-  unarchive: src=/tmp/redmine_work_time-0.3.4.zip dest={{ redmine_dir }}/plugins
-
+  git:
+    repo=https://github.com/tkusukawa/redmine_work_time.git
+    dest={{ redmine_dir }}/plugins/redmine_work_time
+    version=master

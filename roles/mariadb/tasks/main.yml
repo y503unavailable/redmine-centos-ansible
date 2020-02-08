@@ -2,6 +2,10 @@
   become: yes
   template: src=MariaDB.repo dest=/etc/yum.repos.d/MariaDB.repo owner=root group=root mode=0644
 
+- name: groongaのインストール
+  become: yes
+  yum: name='https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm'
+
 - name: Fetch mariadb_repo_setup
   uri:
     url: https://downloads.mariadb.com/MariaDB/mariadb_repo_setup 

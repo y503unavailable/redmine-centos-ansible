@@ -1,0 +1,6 @@
+- name: redmine_issue_evm
+  become: yes
+  git:
+    repo=https://github.com/momibun926/redmine_issue_evm
+    dest={{ redmine_dir }}/plugins/redmine_issue_evm
+    version=master

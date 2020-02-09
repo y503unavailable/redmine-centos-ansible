@@ -8,7 +8,7 @@
 #- include: redmine_wiki_lists.yml
 - include: redmine_work_time.yml
 - include: redmine_xlsx_format_issue_exporter.yml
-#- include: redmine_pivot_table.yml
+- include: redmine_pivot_table.yml
 - include: redmine_full_text_search.yml
 - include: redmine_theme_changer.yml
 #- include: redmine_mermaid_macro.yml

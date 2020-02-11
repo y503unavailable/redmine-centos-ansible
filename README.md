@@ -70,6 +70,20 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 
 admin初期パスワード  unofficial-cracking
 
+## Mariadb/Mroongaのバージョンアップ対応
+
+Mariadb/Mroongaのバージョンが上がり、インストールに失敗する場合は、下記箇所を修正してみてください。
+（MariaDBの最新が10.4の間は大丈夫だと思いますが）
+
+```
+roles/mariadb/templates/MariaDB.repo
+baseurl = http://yum.mariadb.org/10.4/centos7-amd64
+```
+```
+roles/mariadb/tasks/main.yml
+yum: name='mariadb-10.4-mroonga' enablerepo=epel
+```
+
 ---
 
 ## AWS上での追加設定

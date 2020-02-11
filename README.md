@@ -34,21 +34,19 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 ## Redmine標準からの変更内容
 
-### カテゴリのサブプロジェクト継承機能を追加しました。（標準のバージョンと同じ 2019/06/30） ###
+### カテゴリのサブプロジェクト継承機能を追加（標準のバージョンと同等機能 2019/06/30）
 
 https://github.com/y503unavailable/redmine/issues/14
 
-Redmine標準からの変更内容は下記参照ください。
+### OR条件、文字列not match のフィルタ機能を追加（本家4939-note56取込 2020/1）
 
-取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
+http://www.redmine.org/issues/4939#note-56
+https://github.com/y503unavailable/redmine/issues/33
 
-https://github.com/y503unavailable/redmine/blob/3.4-unofficialcooking/README.rdoc     （未作成）
-
+その他、取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
 https://redmine.tokyo/projects/unofficialcooking
 
 ## 同時インストールするプラグイン
-
-~~full_text_search, view_customize, issue_templates, banner, wiki_lists, work_time,wiki_extensions, xlsx_format_issue_exporter, pivot_table, absolute_dates, startpage , theme_changer,mermaid_macro,redmine_tags,redmine_wysiwyg_editor (2018/9/1現在)~~
 
 詳細は下記参照ください。
 
@@ -70,7 +68,7 @@ Redmineインストール直後のadmin初期パスワードは admin で固定�
 
 admin初期パスワード  unofficial-cracking
 
-## Mariadb/Mroongaのバージョンアップ対応
+## Mariadb/Mroongaのインストール失敗時
 
 Mariadb/Mroongaのバージョンが上がり、インストールに失敗する場合は、下記箇所を修正してみてください。
 （MariaDBの最新が10.4の間は大丈夫だと思いますが）

@@ -16,7 +16,7 @@
 
 ## システム構成
 
-* Redmine 4.0
+* Redmine 4.1(trunk)
 * CentOS 7
 * mariadb-10
 * Apache
@@ -38,10 +38,15 @@ Ansibleを使ってRedmineを自動インストールするためのプレイブ
 
 https://github.com/y503unavailable/redmine/issues/14
 
+機能紹介 https://www.slideshare.net/y503unavailable/ss-189711783
+
 ### OR条件、文字列not match のフィルタ機能を追加（本家4939-note56取込 2020/1）
 
 http://www.redmine.org/issues/4939#note-56
+
 https://github.com/y503unavailable/redmine/issues/33
+
+機能紹介 https://redmine.tokyo/issues/281
 
 その他、取り込んだ機能はRedmine.TokyoのUnofficialCookingで説明しています。
 https://redmine.tokyo/projects/unofficialcooking

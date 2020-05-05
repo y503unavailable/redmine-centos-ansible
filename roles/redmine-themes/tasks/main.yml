@@ -34,6 +34,12 @@
     repo=https://github.com/akiko-pusu/redmine_theme_kodomo.git
     dest={{ redmine_dir }}/public/themes/kodomo
 
+- name: theme_kodomo_midori
+  become: yes
+  git:
+    repo=https://github.com/akiko-pusu/redmine_theme_kodomo_midori.git
+    dest={{ redmine_dir }}/public/themes/redmine_theme_kodomo_midori
+
 - name: farend_bleuclair_check
   stat:
     path: "{{ redmine_dir }}/public/themes/bleuclair"

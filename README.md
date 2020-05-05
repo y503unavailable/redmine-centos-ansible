@@ -59,7 +59,7 @@ https://github.com/y503unavailable/redmine-centos-ansible/tree/feature-fts-maria
 
 ## 同時インストールするテーマ
 
-farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light,kodomo,farend_bleuclair
+farend_basic,redmine_flat,gitmike,PurpleMine2,minimalflat2,flatly_light,kodomo,farend_bleuclair,kodomo_midori
 
 詳細は下記参照ください。
 

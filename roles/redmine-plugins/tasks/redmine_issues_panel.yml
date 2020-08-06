@@ -1,0 +1,6 @@
+- name: redmine_issues_panel
+  become: yes
+  git:
+    repo=https://github.com/redmica/redmine_issues_panel
+    dest={{ redmine_dir }}/plugins/redmine_issues_panel
+    version=master

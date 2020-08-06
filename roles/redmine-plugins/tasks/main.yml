@@ -20,6 +20,7 @@
 - include: redmine_watcher_filter.yml
 - include: redmine_silencer.yml
 - include: redmine_issue_evm.yml
+- include: redmine_issues_panel
 
 - name: bundle install
   become: yes

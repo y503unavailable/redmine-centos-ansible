@@ -21,6 +21,7 @@
 - include: redmine_silencer.yml
 - include: redmine_issue_evm.yml
 - include: redmine_issues_panel.yml
+- include: redmine_ip_filter.yml
 
 - name: bundle install
   become: yes

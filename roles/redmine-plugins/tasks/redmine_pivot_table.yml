@@ -1,6 +1,6 @@
 - name: redmine_pivot_table
   become: yes
   git:
-    repo=https://github.com/deecay/redmine_pivot_table
+    repo=https://github.com/y503unavailable/redmine_pivot_table
     dest={{ redmine_dir }}/plugins/redmine_pivot_table
     version=master

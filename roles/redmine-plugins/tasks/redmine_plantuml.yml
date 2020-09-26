@@ -1,0 +1,6 @@
+- name: plantuml
+  become: yes
+  git:
+    repo=https://github.com/hitsoft-redmine/plantuml
+    dest={{ redmine_dir }}/plugins/plantuml
+    version=master

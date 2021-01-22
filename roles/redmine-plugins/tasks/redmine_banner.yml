@@ -1,7 +1,7 @@
 - name: redmine_banner
   become: yes
   git:
-    repo=https://github.com/akiko-pusu/redmine_banner
+    repo=https://github.com/agileware-jp/redmine_banner
     dest={{ redmine_dir }}/plugins/redmine_banner
     version=master
     

@@ -1,6 +1,6 @@
 - name: redmine_issue_templates
   become: yes
   git:
-    repo=https://github.com/akiko-pusu/redmine_issue_templates.git
+    repo=https://github.com/agileware-jp/redmine_issue_templates.git
     dest={{ redmine_dir }}/plugins/redmine_issue_templates
     version=master

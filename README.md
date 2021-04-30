@@ -87,6 +87,12 @@ roles/mariadb/tasks/main.yml
 yum: name='mariadb-10.4-mroonga' enablerepo=epel
 ```
 
+## plantumlプラグインインストール失敗時
+
+インストール時にplantumlのバージョンエラーが発生した場合は、下記ファイルを修正してから、再度ansibleで実行してください。
+/var/lib/redmine/plugins/plantuml/init.rb
+  requires_redmine version: '2.6'..'4.1'     <- 4.1を4.2に修正
+
 ---
 
 ## AWS上での追加設定

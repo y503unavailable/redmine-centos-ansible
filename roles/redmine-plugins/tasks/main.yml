@@ -23,6 +23,7 @@
 - include: redmine_issues_panel.yml
 - include: redmine_ip_filter.yml
 - include: redmine_plantuml.yml
+- include: redmine_issue_assign_notice.yml
 
 - name: bundle install
   become: yes

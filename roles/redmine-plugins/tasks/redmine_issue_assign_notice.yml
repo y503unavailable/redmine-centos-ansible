@@ -1,0 +1,6 @@
+- name: redmine_issue_assign_notice
+  become: yes
+  git:
+    repo=https://github.com/onozaty/redmine_issue_assign_notice
+    dest={{ redmine_dir }}/plugins/redmine_issue_assign_notice
+    version=master

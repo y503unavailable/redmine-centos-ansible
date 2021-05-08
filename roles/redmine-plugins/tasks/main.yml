@@ -24,6 +24,8 @@
 - include: redmine_ip_filter.yml
 - include: redmine_plantuml.yml
 - include: redmine_issue_assign_notice.yml
+- include: redmine_edit_cf_at_issues_index.yml
+- include: redmine_numericfield_chart_macro.yml
 
 - name: bundle install
   become: yes

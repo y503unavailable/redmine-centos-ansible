@@ -1,0 +1,6 @@
+- name: redmine_numericfield_chart_macro
+  become: yes
+  git:
+    repo=https://github.com/matobaa/redmine_numericfield_chart_macro
+    dest={{ redmine_dir }}/plugins/redmine_numericfield_chart_macro
+    version=main

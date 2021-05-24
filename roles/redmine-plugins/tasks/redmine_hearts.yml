@@ -1,0 +1,6 @@
+- name: redmine_hearts
+  become: yes
+  git:
+    repo=https://github.com/cat-in-136/redmine_hearts
+    dest={{ redmine_dir }}/plugins/redmine_hearts
+    version=master

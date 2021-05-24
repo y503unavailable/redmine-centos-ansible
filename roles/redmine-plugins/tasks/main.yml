@@ -26,6 +26,7 @@
 - include: redmine_issue_assign_notice.yml
 - include: redmine_edit_cf_at_issues_index.yml
 - include: redmine_numericfield_chart_macro.yml
+- include: redmine_hearts.yml
 
 - name: bundle install
   become: yes

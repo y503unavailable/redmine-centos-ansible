@@ -1,0 +1,6 @@
+- name: redmine_shared_api
+  become: yes
+  git:
+    repo=https://github.com/y503unavailable/redmine_shared_api.git
+    dest={{ redmine_dir }}/plugins/redmine_shared_api
+    version=version-reails-upto-5

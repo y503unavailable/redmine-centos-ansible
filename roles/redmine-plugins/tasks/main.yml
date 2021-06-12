@@ -27,6 +27,7 @@
 - include: redmine_edit_cf_at_issues_index.yml
 - include: redmine_numericfield_chart_macro.yml
 - include: redmine_hearts.yml
+- include: redmine_shared_api.yml
 
 - name: bundle install
   become: yes

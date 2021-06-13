@@ -117,7 +117,7 @@ passengerのビルド中、メモリ不足でインストール失敗する場�
 https://mseeeen.msen.jp/redmine-amazon-linux-ansible/
 
 ```
-dd if=/dev/zero of=/swap bs=1M count=1024
+dd if=/dev/zero of=/swap bs=1M count=2048
 chmod 600 /swap
 mkswap /swap
 swapon /swap
